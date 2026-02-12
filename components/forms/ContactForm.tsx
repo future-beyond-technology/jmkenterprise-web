@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { companyInfo } from "@/lib/company";
 
 type ContactFormState = {
   name: string;
@@ -114,7 +115,7 @@ export function ContactForm() {
             value={form.phone}
             onChange={(event) => setForm((prev) => ({ ...prev, phone: event.target.value }))}
             className="form-input"
-            placeholder="+91 98765 43210"
+            placeholder={companyInfo.phone}
           />
           {errors.phone ? <p className="mt-1 text-xs text-red-400">{errors.phone}</p> : null}
         </div>
@@ -134,6 +135,14 @@ export function ContactForm() {
         />
         {errors.message ? <p className="mt-1 text-xs text-red-400">{errors.message}</p> : null}
       </div>
+
+      <p className="text-xs text-zinc-400">
+        For direct assistance, email us at{" "}
+        <a href={`mailto:${companyInfo.email}`} className="text-zinc-200 underline-offset-4 hover:underline">
+          {companyInfo.email}
+        </a>
+        .
+      </p>
 
       <button type="submit" className="btn-primary">
         Submit Inquiry

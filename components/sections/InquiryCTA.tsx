@@ -22,7 +22,7 @@ export function InquiryCTA() {
           <ul className="mt-6 space-y-2 text-sm text-zinc-700">
             {assurancePoints.map((point) => (
               <li key={point} className="flex items-start gap-2.5">
-                <span className="mt-1 inline-block h-2 w-2 rounded-full bg-[#C40000]" />
+                <span className="mt-1 inline-block h-2 w-2 rounded-full bg-[#FC7A02]" />
                 <span>{point}</span>
               </li>
             ))}
