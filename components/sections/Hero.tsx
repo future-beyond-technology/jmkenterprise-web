@@ -36,9 +36,9 @@ const segmentTags = [
 export function Hero() {
   return (
     <section className="relative overflow-hidden border-b border-zinc-800 bg-[#101214]">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_15%,rgba(196,0,0,0.17),transparent_35%),radial-gradient(circle_at_85%_12%,rgba(196,0,0,0.2),transparent_40%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_15%,rgba(252,122,2,0.17),transparent_35%),radial-gradient(circle_at_85%_12%,rgba(252,122,2,0.2),transparent_40%)]" />
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] [background-size:42px_42px] opacity-25" />
-      <div className="absolute -left-24 top-20 h-72 w-72 rounded-full bg-[#C40000]/20 blur-3xl" />
+      <div className="absolute -left-24 top-20 h-72 w-72 rounded-full bg-[#FC7A02]/20 blur-3xl" />
 
       <div className="industrial-container relative py-16 lg:py-24">
         <div className="grid gap-10 lg:grid-cols-[1.12fr_0.88fr] lg:items-start">
@@ -103,7 +103,7 @@ export function Hero() {
                   className="rounded-lg border border-zinc-700 bg-[#111315]/90 p-4"
                 >
                   <div className="flex items-start gap-3">
-                    <span className="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-[#C40000]/70 bg-[#C40000]/15 text-xs font-semibold text-white">
+                    <span className="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-[#FC7A02]/70 bg-[#FC7A02]/15 text-xs font-semibold text-white">
                       {item.step}
                     </span>
                     <div>

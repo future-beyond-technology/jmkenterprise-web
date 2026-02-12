@@ -29,7 +29,7 @@ export function Navbar() {
             <Link
               key={category.slug}
               href={`/products/${category.slug}`}
-              className="shrink-0 rounded-full border border-zinc-700 bg-[#111315] px-3 py-1.5 text-xs font-semibold text-zinc-100 transition hover:border-[#C40000] hover:bg-[#C40000]/20"
+              className="shrink-0 rounded-full border border-zinc-700 bg-[#111315] px-3 py-1.5 text-xs font-semibold text-zinc-100 transition hover:border-[#FC7A02] hover:bg-[#FC7A02]/20"
             >
               {category.name}
             </Link>

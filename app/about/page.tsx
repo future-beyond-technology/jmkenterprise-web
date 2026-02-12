@@ -1,3 +1,4 @@
+import { companyInfo } from "@/lib/company";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
@@ -45,9 +46,14 @@ export default function AboutPage() {
             Building Dependable Industrial Supply Partnerships
           </h1>
           <p className="mt-4 max-w-3xl text-zinc-300">
-            JMK Enterprise serves B2B customers across manufacturing, fabrication, and project
-            engineering segments with a practical mix of product quality, responsive service, and
-            consistent commercial support.
+            {companyInfo.companyName} serves B2B customers across manufacturing, fabrication, and
+            project engineering segments with a practical mix of product quality, responsive service,
+            and consistent commercial support.
+          </p>
+          <p className="mt-3 max-w-3xl text-zinc-300">
+            {companyInfo.companyName} operates under the registered trade name{" "}
+            {companyInfo.legalDetails.tradeName}, a {companyInfo.legalDetails.constitution} business
+            owned by {companyInfo.legalDetails.legalName}.
           </p>
         </header>
 
@@ -59,6 +65,31 @@ export default function AboutPage() {
             </article>
           ))}
         </div>
+
+        <section className="rounded-2xl border-2 border-[#FC7A02]/70 bg-[#151719] p-6 shadow-[0_20px_45px_rgba(0,0,0,0.35)] lg:p-7">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-300">
+            Import & Export Operations
+          </p>
+          <h2 className="mt-3 text-3xl font-semibold text-white lg:text-4xl">
+            Import & Export Operations
+          </h2>
+          <div className="mt-5 grid gap-5 lg:grid-cols-[1.15fr_0.85fr]">
+            <p className="text-base leading-7 text-zinc-100">
+              JMK Enterprise is engaged in the import and distribution of industrial welding
+              machines, welding consumables, and hardware tools. We supply fabrication units,
+              engineering contractors, and industrial procurement teams with reliable and scalable
+              sourcing solutions.
+            </p>
+            <div className="rounded-lg border border-zinc-700 bg-[#0f1112] p-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-zinc-400">
+                Business Type
+              </p>
+              <p className="mt-2 text-sm leading-6 text-zinc-200">
+                {companyInfo.businessType}
+              </p>
+            </div>
+          </div>
+        </section>
 
         <article className="metal-panel panel-sheen p-6">
           <h2 className="text-3xl font-semibold text-white">Certifications & Compliance</h2>

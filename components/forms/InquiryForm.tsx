@@ -2,6 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import { FormEvent, useMemo, useState } from "react";
+import { companyInfo } from "@/lib/company";
 
 type InquiryFormState = {
   fullName: string;
@@ -150,7 +151,7 @@ export function InquiryForm({ defaultProduct = "" }: InquiryFormProps) {
             value={form.phone}
             onChange={(event) => setForm((prev) => ({ ...prev, phone: event.target.value }))}
             className="form-input"
-            placeholder="+91 98765 43210"
+            placeholder={companyInfo.phone}
           />
           {errors.phone ? <p className="mt-1 text-xs text-red-400">{errors.phone}</p> : null}
         </div>
@@ -240,6 +241,13 @@ export function InquiryForm({ defaultProduct = "" }: InquiryFormProps) {
           placeholder="Share preferred brands, delivery schedule, or technical requirements"
         />
       </div>
+
+      <p className="text-xs text-zinc-400">
+        Official inquiry mailbox:{" "}
+        <a href={`mailto:${companyInfo.email}`} className="text-zinc-200 underline-offset-4 hover:underline">
+          {companyInfo.email}
+        </a>
+      </p>
 
       <button type="submit" className="btn-primary">
         Submit Dealer Inquiry
