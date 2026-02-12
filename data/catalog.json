@@ -1,0 +1,193 @@
+{
+  "categories": [
+    {
+      "id": "welding-machines",
+      "name": "Welding Machines",
+      "slug": "welding-machines",
+      "summary": "Industrial-grade inverter and MIG welding machines for fabrication units, plant maintenance teams, and OEM production lines.",
+      "heroImage": "/images/products/welding-machine-arc-pro.svg",
+      "seo": {
+        "title": "Welding Machines | JMK Enterprise",
+        "description": "Source industrial welding machines with consistent arc performance, high duty cycle, and dependable after-sales support from JMK Enterprise."
+      },
+      "products": [
+        {
+          "id": "arc-welder-400a",
+          "category": "welding-machines",
+          "slug": "arc-welder-400a",
+          "inquirySlug": "arc-welder-400a",
+          "title": "ArcMaster 400A Inverter Welding Machine",
+          "shortDescription": "Heavy-duty inverter arc welder for continuous industrial operation.",
+          "description": "ArcMaster 400A is built for demanding shop-floor duty where welding consistency and uptime are critical. The machine delivers stable output for structural fabrication, repair work, and production welding jobs.",
+          "images": [
+            "/images/products/welding-machine-arc-pro.svg",
+            "/images/products/welding-machine-control-panel.svg"
+          ],
+          "catalogUrl": "/catalogs/jmk-enterprise-catalog.pdf",
+          "keywords": [
+            "industrial arc welding machine",
+            "inverter welder supplier",
+            "400a welding machine"
+          ],
+          "specs": [
+            { "label": "Output Current", "value": "30A - 400A" },
+            { "label": "Input Voltage", "value": "415V, 3 Phase" },
+            { "label": "Duty Cycle", "value": "60% @ 400A" },
+            { "label": "Protection", "value": "Overheat / Overcurrent" }
+          ]
+        },
+        {
+          "id": "mig-welder-350",
+          "category": "welding-machines",
+          "slug": "mig-welder-350",
+          "inquirySlug": "mig-welder-350",
+          "title": "PowerMIG 350 Pulse Welding System",
+          "shortDescription": "Production-ready MIG unit for mild steel and stainless fabrication.",
+          "description": "PowerMIG 350 Pulse supports high-speed production welding with reduced spatter and excellent bead appearance. It is suitable for fabrication contractors, OEM workshops, and industrial assembly lines.",
+          "images": [
+            "/images/products/welding-machine-mig-350.svg",
+            "/images/products/welding-machine-mig-torch.svg"
+          ],
+          "catalogUrl": "/catalogs/jmk-enterprise-catalog.pdf",
+          "keywords": [
+            "mig welding machine",
+            "pulse mig welder",
+            "fabrication welding equipment"
+          ],
+          "specs": [
+            { "label": "Output Range", "value": "50A - 350A" },
+            { "label": "Wire Diameter", "value": "0.8mm - 1.2mm" },
+            { "label": "Cooling", "value": "Forced Air" },
+            { "label": "Display", "value": "Digital Parameter Panel" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "welding-consumables",
+      "name": "Welding Consumables (Electrodes & Wires)",
+      "slug": "welding-consumables",
+      "summary": "Reliable electrodes and welding wires for structural steel, repair welding, and high-throughput fabrication environments.",
+      "heroImage": "/images/products/consumable-electrode-e7018.svg",
+      "seo": {
+        "title": "Welding Consumables | JMK Enterprise",
+        "description": "Industrial welding consumables including low-hydrogen electrodes and copper coated MIG wires for stable weld quality and productivity."
+      },
+      "products": [
+        {
+          "id": "electrode-e7018",
+          "category": "welding-consumables",
+          "slug": "electrode-e7018",
+          "inquirySlug": "electrode-e7018",
+          "title": "E7018 Low Hydrogen Electrodes",
+          "shortDescription": "Moisture-resistant low hydrogen electrodes for crack-resistant welds.",
+          "description": "JMK E7018 low hydrogen electrodes are engineered for high-strength joints and reduced hydrogen cracking risk. Suitable for heavy fabrication, pressure vessel jobs, and structural welding applications.",
+          "images": [
+            "/images/products/consumable-electrode-e7018.svg",
+            "/images/products/consumable-packaging.svg"
+          ],
+          "catalogUrl": "/catalogs/jmk-enterprise-catalog.pdf",
+          "keywords": [
+            "e7018 electrode supplier",
+            "low hydrogen electrodes",
+            "industrial welding consumables"
+          ],
+          "specs": [
+            { "label": "Classification", "value": "AWS A5.1 E7018" },
+            { "label": "Diameter Range", "value": "2.5mm / 3.15mm / 4.0mm" },
+            { "label": "Packaging", "value": "5kg Moisture-Proof Pack" },
+            { "label": "Applications", "value": "Structural Steel, Repair, Pressure Vessels" }
+          ]
+        },
+        {
+          "id": "mig-wire-er70s6",
+          "category": "welding-consumables",
+          "slug": "mig-wire-er70s6",
+          "inquirySlug": "mig-wire-er70s6",
+          "title": "ER70S-6 Copper Coated MIG Wire",
+          "shortDescription": "High-feed copper coated wire for smooth arc transfer and low spatter.",
+          "description": "ER70S-6 copper coated MIG wire from JMK Enterprise offers clean feeding and stable performance across automated and semi-automatic setups, ideal for high-volume fabrication operations.",
+          "images": [
+            "/images/products/consumable-mig-wire.svg",
+            "/images/products/consumable-wire-spool.svg"
+          ],
+          "catalogUrl": "/catalogs/jmk-enterprise-catalog.pdf",
+          "keywords": [
+            "er70s-6 wire",
+            "mig wire supplier",
+            "copper coated welding wire"
+          ],
+          "specs": [
+            { "label": "Wire Type", "value": "ER70S-6 Copper Coated" },
+            { "label": "Available Size", "value": "0.8mm / 1.0mm / 1.2mm" },
+            { "label": "Spool Weight", "value": "15kg" },
+            { "label": "Shielding Gas", "value": "CO2 / Ar-CO2 Mix" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tools-hardware",
+      "name": "Tools & Hardware",
+      "slug": "tools-hardware",
+      "summary": "Workshop-ready industrial tools and hardware essentials selected for durability, repeat use, and operational safety.",
+      "heroImage": "/images/products/tool-angle-grinder.svg",
+      "seo": {
+        "title": "Tools & Hardware | JMK Enterprise",
+        "description": "Industrial tools and hardware solutions from angle grinders to precision vices for B2B buyers, dealers, and fabrication units."
+      },
+      "products": [
+        {
+          "id": "angle-grinder-5inch",
+          "category": "tools-hardware",
+          "slug": "angle-grinder-5inch",
+          "inquirySlug": "angle-grinder-5inch",
+          "title": "ProCut 5-inch Industrial Angle Grinder",
+          "shortDescription": "Rugged angle grinder for cutting, deburring, and surface preparation.",
+          "description": "ProCut 5-inch angle grinder is designed for fabrication and maintenance teams requiring reliable power delivery and ergonomic control during long operational cycles.",
+          "images": [
+            "/images/products/tool-angle-grinder.svg",
+            "/images/products/tool-cutting-disc.svg"
+          ],
+          "catalogUrl": "/catalogs/jmk-enterprise-catalog.pdf",
+          "keywords": [
+            "industrial angle grinder",
+            "fabrication power tools",
+            "hardware supplier"
+          ],
+          "specs": [
+            { "label": "Disc Size", "value": "125mm (5 inch)" },
+            { "label": "Power Input", "value": "1100W" },
+            { "label": "No-Load Speed", "value": "11,000 RPM" },
+            { "label": "Body", "value": "High Impact Composite" }
+          ]
+        },
+        {
+          "id": "bench-vice-6inch",
+          "category": "tools-hardware",
+          "slug": "bench-vice-6inch",
+          "inquirySlug": "bench-vice-6inch",
+          "title": "ForgeLock 6-inch Heavy Duty Bench Vice",
+          "shortDescription": "Cast steel vice for clamping and precision workshop operations.",
+          "description": "ForgeLock 6-inch bench vice provides firm clamping force and excellent repeatability for drilling, cutting, and fitting operations in industrial workshops.",
+          "images": [
+            "/images/products/tool-bench-vice.svg",
+            "/images/products/tool-bench-installation.svg"
+          ],
+          "catalogUrl": "/catalogs/jmk-enterprise-catalog.pdf",
+          "keywords": [
+            "bench vice supplier",
+            "industrial workshop hardware",
+            "heavy duty vice"
+          ],
+          "specs": [
+            { "label": "Jaw Width", "value": "150mm (6 inch)" },
+            { "label": "Opening Capacity", "value": "0 - 165mm" },
+            { "label": "Body Material", "value": "Ductile Cast Steel" },
+            { "label": "Mounting", "value": "4-Bolt Bench Mount" }
+          ]
+        }
+      ]
+    }
+  ]
+}

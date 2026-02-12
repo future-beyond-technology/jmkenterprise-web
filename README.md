@@ -1,36 +1,116 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# JMK Enterprise Website (Next.js 16)
 
-## Getting Started
+Corporate B2B industrial website starter for **JMK Enterprise** built with **Next.js 16 (App Router)**, **TypeScript**, and **TailwindCSS**.
 
-First, run the development server:
+- Website: `JMK Enterprise`
+- Domain: `https://jmkenterprisein.com`
+- Industry: Industrial Welding & Hardware Supplier (B2B)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Tech Stack
+
+- Next.js 16 (App Router)
+- TypeScript
+- TailwindCSS
+- Static export compatible (`output: "export"`)
+
+## Project Structure
+
+```txt
+app/
+  about/page.tsx
+  contact/page.tsx
+  dealer-inquiry/page.tsx
+  products/
+    page.tsx
+    [category]/page.tsx
+    [category]/[slug]/page.tsx
+  layout.tsx
+  page.tsx
+  not-found.tsx
+  sitemap.ts
+  robots.ts
+components/
+  forms/
+    ContactForm.tsx
+    InquiryForm.tsx
+  layout/
+    Header.tsx
+    Navbar.tsx
+    Footer.tsx
+  sections/
+    Hero.tsx
+    CompanyHighlights.tsx
+    CategoryPreview.tsx
+    WhyChooseUs.tsx
+    InquiryCTA.tsx
+  ProductCard.tsx
+  ProductDetail.tsx
+  seo/SEOHead.tsx
+data/
+  catalog.json
+lib/
+  catalog.ts
+  seo.ts
+  site.ts
+types/
+  catalog.ts
+public/
+  images/
+  catalogs/
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features Included
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Homepage with hero, highlights, category previews, why choose us, inquiry CTA, WhatsApp CTA
+- About page with mission, vision, infrastructure, and certifications section
+- Products index + dynamic category pages
+- Dynamic product detail routes: `/products/[category]/[slug]`
+- Product detail UI with images, specs table, inquiry button, and download catalog button
+- Dealer Inquiry and Contact pages with client-side validation forms
+- SEO setup:
+  - Page-level metadata
+  - OpenGraph metadata
+  - Site-wide Organization/WebSite JSON-LD
+  - Product JSON-LD on product pages
+- `404`, `sitemap.xml`, and `robots.txt`
+- Data-driven catalog from `data/catalog.json`
+- Clean modular architecture for phase-2 CMS integration
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Static Catalog Data
 
-## Learn More
+`data/catalog.json` includes sample categories:
 
-To learn more about Next.js, take a look at the following resources:
+- Welding Machines
+- Welding Consumables (Electrodes & Wires)
+- Tools & Hardware
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Sample products (6 included) with:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- title
+- images
+- specs
+- inquiry slug
+- description
 
-## Deploy on Vercel
+## Local Development
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm install
+npm run dev
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Open `http://localhost:3000`.
+
+## Build & Static Export
+
+```bash
+npm run build
+```
+
+The project is configured for static export compatibility via `next.config.ts`.
+
+## Phase 2 Ready Notes
+
+- Catalog and route rendering are data-driven for easier CMS migration.
+- SEO helper utilities centralize metadata generation.
+- Route structure can be extended for locale-based routing in a future phase.
