@@ -33,7 +33,7 @@ export function CategoryPreview({ categories }: CategoryPreviewProps) {
               <ul className="mt-5 space-y-2 border-t border-zinc-700 pt-4 text-sm text-zinc-200">
                 {category.products.slice(0, 3).map((product) => (
                   <li key={product.id} className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#C40000]" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#FC7A02]" />
                     <span>{product.title}</span>
                   </li>
                 ))}

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { companyInfo } from "@/lib/company";
 import { siteConfig } from "@/lib/site";
 
 type BuildMetadataInput = {
@@ -60,14 +61,16 @@ export function buildOrganizationJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: siteConfig.name,
+    name: companyInfo.companyName,
     url: siteConfig.domain,
     logo: absoluteUrl(siteConfig.logo),
-    email: siteConfig.email,
-    telephone: siteConfig.phone,
+    description: companyInfo.businessType,
+    email: companyInfo.email,
+    telephone: companyInfo.phone,
+    taxID: companyInfo.gst,
     address: {
       "@type": "PostalAddress",
-      streetAddress: siteConfig.address,
+      streetAddress: companyInfo.address,
       addressCountry: "IN"
     },
     sameAs: [absoluteUrl("/contact")]

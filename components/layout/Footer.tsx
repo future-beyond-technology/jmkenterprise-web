@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getCategories } from "@/lib/catalog";
-import { siteConfig, whatsappUrl } from "@/lib/site";
+import { companyInfo } from "@/lib/company";
+import { siteConfig } from "@/lib/site";
 
 export function Footer() {
   const categories = getCategories();
@@ -8,10 +9,27 @@ export function Footer() {
   return (
     <footer className="border-t border-zinc-800 bg-[#0d0f10]">
       <div className="industrial-container py-12">
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           <section className="metal-panel panel-sheen p-5">
-            <h3 className="text-xl font-semibold text-white">{siteConfig.name}</h3>
-            <p className="mt-3 text-sm leading-6 text-zinc-300">{siteConfig.description}</p>
+            <h3 className="text-xl font-semibold text-white">{companyInfo.companyName}</h3>
+            <p className="mt-1 text-xs uppercase tracking-[0.12em] text-zinc-400">
+              Trade Name: {companyInfo.legalDetails.tradeName}
+            </p>
+            <p className="mt-2 text-sm text-zinc-300">{companyInfo.businessType}</p>
+            <div className="mt-4 space-y-2 text-sm text-zinc-200">
+              <p>{companyInfo.address}</p>
+              <p>
+                <a href={`tel:${companyInfo.phone.replace(/\s+/g, "")}`} className="transition hover:text-white">
+                  {companyInfo.phone}
+                </a>
+              </p>
+              <p>
+                <a href={`mailto:${companyInfo.email}`} className="transition hover:text-white">
+                  {companyInfo.email}
+                </a>
+              </p>
+              <p className="text-zinc-300">GSTIN: {companyInfo.gst}</p>
+            </div>
           </section>
 
           <section className="metal-panel p-5">
@@ -31,7 +49,7 @@ export function Footer() {
 
           <section className="metal-panel p-5">
             <h4 className="text-[11px] font-semibold uppercase tracking-[0.17em] text-zinc-300">
-              Categories
+              Product Categories
             </h4>
             <ul className="mt-3 space-y-2 text-sm text-zinc-200">
               {categories.map((category) => (
@@ -43,30 +61,11 @@ export function Footer() {
               ))}
             </ul>
           </section>
-
-          <section className="metal-panel p-5">
-            <h4 className="text-[11px] font-semibold uppercase tracking-[0.17em] text-zinc-300">
-              Contact
-            </h4>
-            <div className="mt-3 space-y-2 text-sm text-zinc-200">
-              <p>{siteConfig.address}</p>
-              <p>
-                <a href={`mailto:${siteConfig.email}`} className="transition hover:text-white">
-                  {siteConfig.email}
-                </a>
-              </p>
-              <p>
-                <a href={whatsappUrl} target="_blank" rel="noreferrer" className="transition hover:text-white">
-                  WhatsApp Chat
-                </a>
-              </p>
-            </div>
-          </section>
         </div>
       </div>
 
       <div className="border-t border-zinc-800 py-4 text-center text-xs uppercase tracking-[0.1em] text-zinc-400">
-        © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
+        © {new Date().getFullYear()} {companyInfo.companyName}. All rights reserved.
       </div>
     </footer>
   );

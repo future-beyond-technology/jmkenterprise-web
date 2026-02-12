@@ -10,7 +10,7 @@ type ProductCardProps = {
 
 export function ProductCard({ product, categorySlug, categoryName }: ProductCardProps) {
   return (
-    <article className="metal-panel group overflow-hidden transition duration-300 hover:-translate-y-1 hover:border-[#C40000]/80">
+    <article className="metal-panel group overflow-hidden transition duration-300 hover:-translate-y-1 hover:border-[#FC7A02]/80">
       <div className="relative aspect-[4/3] overflow-hidden border-b border-zinc-700">
         <Image
           src={product.images[0]}

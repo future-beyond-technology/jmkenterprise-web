@@ -1,19 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
+import { companyInfo } from "@/lib/company";
 import { siteConfig, whatsappUrl } from "@/lib/site";
 
 export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-zinc-800/80 bg-[#101213]/92 backdrop-blur-md">
       <div className="border-b border-zinc-800/70 bg-[#0d0f10]">
-        <div className="industrial-container flex flex-wrap items-center justify-between gap-3 py-2 text-[11px] uppercase tracking-[0.16em] text-zinc-400">
-          <p>Industrial Welding & Hardware Supplier</p>
-          <div className="flex flex-wrap items-center gap-4">
-            <a href={`mailto:${siteConfig.email}`} className="transition hover:text-zinc-200">
-              {siteConfig.email}
-            </a>
-            <span>{siteConfig.businessHours}</span>
-          </div>
+        <div className="industrial-container flex items-center justify-between gap-3 py-2 text-[11px] uppercase tracking-[0.16em] text-zinc-400">
+          <p className="truncate">{companyInfo.businessType}</p>
+          <a
+            href={`tel:${companyInfo.phone.replace(/\s+/g, "")}`}
+            className="shrink-0 font-semibold text-zinc-200 transition hover:text-white"
+          >
+            {companyInfo.phone}
+          </a>
         </div>
       </div>
 
@@ -22,21 +23,27 @@ export function Header() {
           <Image
             src={siteConfig.logo}
             alt={`${siteConfig.name} Logo`}
-            width={198}
-            height={52}
+            width={64}
+            height={64}
+            className="h-14 w-14 rounded-sm object-contain"
             priority
           />
-          <span className="hidden border-l border-zinc-700 pl-3 text-xs font-semibold uppercase tracking-[0.16em] text-zinc-300 sm:inline">
-            Trusted B2B Procurement Partner
-          </span>
+          <div className="hidden border-l border-zinc-700 pl-3 sm:block">
+            <p className="text-lg font-semibold uppercase tracking-[0.09em] text-zinc-100">
+              {companyInfo.companyName}
+            </p>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-zinc-300">
+              Trusted B2B Procurement Partner
+            </p>
+          </div>
         </Link>
 
         <div className="flex flex-wrap items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.1em]">
           <a
-            href={`tel:${siteConfig.phone.replace(/\s+/g, "")}`}
+            href={`tel:${companyInfo.phone.replace(/\s+/g, "")}`}
             className="rounded-md border border-zinc-700 px-3.5 py-2 text-zinc-200 transition hover:border-zinc-500 hover:bg-zinc-900"
           >
-            {siteConfig.phone}
+            {companyInfo.phone}
           </a>
           <Link href="/dealer-inquiry" className="btn-primary">
             Dealer Inquiry
