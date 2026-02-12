@@ -1,0 +1,10 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" fill="#161616"/>
+  <rect x="60" y="60" width="1080" height="780" rx="26" fill="#232323" stroke="#C40000" stroke-width="3"/>
+  <circle cx="220" cy="220" r="110" fill="#C40000" fill-opacity="0.24"/>
+  <circle cx="980" cy="680" r="170" fill="#C40000" fill-opacity="0.14"/>
+  <rect x="180" y="260" width="840" height="360" rx="18" fill="#111111" stroke="#3F3F46" stroke-width="2"/>
+  <text x="210" y="420" fill="white" font-size="58" font-family="Arial, sans-serif" font-weight="700">welding machine control panel</text>
+  <text x="210" y="490" fill="#D4D4D8" font-size="28" font-family="Arial, sans-serif">JMK Enterprise Industrial Product Reference</text>
+  <rect x="210" y="540" width="300" height="14" rx="7" fill="#C40000"/>
+</svg>

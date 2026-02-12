@@ -1,0 +1,7 @@
+<svg width="240" height="64" viewBox="0 0 240 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="240" height="64" rx="8" fill="#1C1C1C"/>
+  <rect x="8" y="8" width="48" height="48" rx="6" fill="#C40000"/>
+  <path d="M20 20H28V44H20V20ZM32 20H40V34L48 20H56L46 36L56 44H46L40 38V44H32V20Z" fill="white"/>
+  <text x="72" y="31" fill="white" font-size="18" font-family="Arial, sans-serif" font-weight="700">JMK ENTERPRISE</text>
+  <text x="72" y="47" fill="#E5E7EB" font-size="10" font-family="Arial, sans-serif" letter-spacing="1">INDUSTRIAL WELDING &amp; HARDWARE</text>
+</svg>
