@@ -2,72 +2,131 @@ import Link from "next/link";
 import { siteConfig, whatsappUrl } from "@/lib/site";
 
 const heroStats = [
-  { value: "250+", label: "Active B2B Accounts" },
-  { value: "48 Hrs", label: "Typical Quote Turnaround" },
-  { value: "3 Core", label: "Industrial Product Categories" }
+  { value: "99.1%", label: "Supply Consistency" },
+  { value: "24-48h", label: "Quote Window" },
+  { value: "500+", label: "Category SKUs" },
+  { value: "PAN India", label: "Dispatch Reach" }
 ];
 
-const sectorCoverage = ["Fabrication Plants", "OEM Workshops", "Project Procurement Teams", "Channel Dealers"];
+const procurementFlow = [
+  {
+    step: "01",
+    title: "Requirement Mapping",
+    note: "Collect technical specs, quantity, and delivery timeline."
+  },
+  {
+    step: "02",
+    title: "Commercial Structuring",
+    note: "Align product mix, pricing slab, and lead-time confirmation."
+  },
+  {
+    step: "03",
+    title: "Supply Execution",
+    note: "Coordinated dispatch with responsive post-order support."
+  }
+];
+
+const segmentTags = [
+  "Fabrication Plants",
+  "OEM Workshops",
+  "Infrastructure Projects",
+  "Authorized Dealers"
+];
 
 export function Hero() {
   return (
-    <section className="industrial-section-dark relative overflow-hidden border-b border-zinc-800">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_88%_22%,rgba(196,0,0,0.22),transparent_42%)]" />
-      <div className="industrial-container relative grid gap-10 lg:grid-cols-[1.12fr_0.88fr] lg:items-center">
-        <div className="reveal-up">
-          <p className="accent-kicker">Industrial Welding & Hardware Supplier</p>
-          <h1 className="section-title max-w-4xl text-white">
-            Corporate-Grade Industrial Supply for Reliable Production and Procurement
-          </h1>
-          <p className="mt-5 max-w-3xl text-base leading-7 text-zinc-300 sm:text-lg">
-            {siteConfig.name} helps industrial buyers source machines, consumables, and tools through
-            one structured vendor network focused on quality, continuity, and faster commercial response.
-          </p>
+    <section className="relative overflow-hidden border-b border-zinc-800 bg-[#101214]">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_15%,rgba(196,0,0,0.17),transparent_35%),radial-gradient(circle_at_85%_12%,rgba(196,0,0,0.2),transparent_40%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] [background-size:42px_42px] opacity-25" />
+      <div className="absolute -left-24 top-20 h-72 w-72 rounded-full bg-[#C40000]/20 blur-3xl" />
 
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link href="/products" className="btn-primary">
-              Explore Products
-            </Link>
-            <Link href="/dealer-inquiry" className="btn-outline">
-              Become a Dealer
-            </Link>
-            <a href={whatsappUrl} target="_blank" rel="noreferrer" className="btn-subtle">
-              WhatsApp Us
-            </a>
+      <div className="industrial-container relative py-16 lg:py-24">
+        <div className="grid gap-10 lg:grid-cols-[1.12fr_0.88fr] lg:items-start">
+          <div className="reveal-up">
+            <p className="accent-kicker">Industrial Welding & Hardware Supplier</p>
+            <h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl">
+              Corporate-Grade Procurement Backbone for Welding and Hardware Operations
+            </h1>
+            <p className="mt-6 max-w-3xl text-base leading-7 text-zinc-300 sm:text-lg">
+              {siteConfig.name} supports B2B teams with structured sourcing across machines,
+              consumables, and tools. Built for consistency, fast commercial turnaround, and
+              repeat-order reliability.
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link href="/products" className="btn-primary">
+                Explore Products
+              </Link>
+              <Link href="/dealer-inquiry" className="btn-outline">
+                Request B2B Quote
+              </Link>
+              <a href={whatsappUrl} target="_blank" rel="noreferrer" className="btn-subtle">
+                WhatsApp Now
+              </a>
+            </div>
+
+            <div className="metal-panel mt-8 p-4 sm:p-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-zinc-300">
+                Trusted Across Industrial Segments
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {segmentTags.map((segment) => (
+                  <span
+                    key={segment}
+                    className="rounded border border-zinc-700 bg-[#111315] px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.11em] text-zinc-200"
+                  >
+                    {segment}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
 
-          <div className="mt-8 flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-zinc-300">
-            <span className="rounded-full border border-zinc-700 px-3 py-1.5">Bulk Supply Support</span>
-            <span className="rounded-full border border-zinc-700 px-3 py-1.5">Category-Wise Catalog</span>
-            <span className="rounded-full border border-zinc-700 px-3 py-1.5">Dealer Network Ready</span>
-          </div>
-        </div>
+          <aside className="metal-panel panel-sheen reveal-up relative overflow-hidden p-5 lg:p-6">
+            <div className="flex items-start justify-between gap-3">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-zinc-300">
+                  Supply Intelligence Console
+                </p>
+                <h2 className="mt-2 text-2xl font-semibold text-white">Procurement Workflow</h2>
+              </div>
+              <span className="inline-flex items-center gap-2 rounded-full border border-emerald-600/40 bg-emerald-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.1em] text-emerald-300">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                Active
+              </span>
+            </div>
 
-        <aside className="metal-panel panel-sheen reveal-up p-6 lg:p-7">
-          <p className="text-xs font-semibold uppercase tracking-[0.17em] text-zinc-300">
-            Performance Snapshot
-          </p>
-
-          <div className="stagger-grid mt-5 grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
-            {heroStats.map((item) => (
-              <article key={item.label} className="rounded-md border border-zinc-700 bg-[#101213] p-4">
-                <p className="text-3xl font-bold text-white">{item.value}</p>
-                <p className="mt-1 text-xs uppercase tracking-[0.1em] text-zinc-400">{item.label}</p>
-              </article>
-            ))}
-          </div>
-
-          <div className="mt-6 border-t border-zinc-700 pt-5">
-            <p className="text-xs font-semibold uppercase tracking-[0.17em] text-zinc-300">Sector Coverage</p>
-            <ul className="mt-3 grid gap-2 text-sm text-zinc-200 sm:grid-cols-2 lg:grid-cols-1">
-              {sectorCoverage.map((sector) => (
-                <li key={sector} className="rounded border border-zinc-700 bg-[#111315] px-3 py-2">
-                  {sector}
-                </li>
+            <div className="mt-5 space-y-3">
+              {procurementFlow.map((item) => (
+                <article
+                  key={item.step}
+                  className="rounded-lg border border-zinc-700 bg-[#111315]/90 p-4"
+                >
+                  <div className="flex items-start gap-3">
+                    <span className="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-[#C40000]/70 bg-[#C40000]/15 text-xs font-semibold text-white">
+                      {item.step}
+                    </span>
+                    <div>
+                      <h3 className="text-base font-semibold text-zinc-100">{item.title}</h3>
+                      <p className="mt-1 text-sm leading-6 text-zinc-300">{item.note}</p>
+                    </div>
+                  </div>
+                </article>
               ))}
-            </ul>
-          </div>
-        </aside>
+            </div>
+
+            <div className="stagger-grid mt-5 grid gap-3 sm:grid-cols-2">
+              {heroStats.map((item) => (
+                <article key={item.label} className="rounded-lg border border-zinc-700 bg-[#0e1011] p-3.5">
+                  <p className="text-xl font-semibold text-white">{item.value}</p>
+                  <p className="mt-1 text-[11px] uppercase tracking-[0.11em] text-zinc-400">
+                    {item.label}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </aside>
+        </div>
       </div>
     </section>
   );
