@@ -67,7 +67,7 @@ export function buildOrganizationJsonLd() {
     description: companyInfo.businessType,
     email: companyInfo.email,
     telephone: companyInfo.phone,
-    taxID: companyInfo.gst,
+    taxID: companyInfo.legalDetails.gst,
     address: {
       "@type": "PostalAddress",
       streetAddress: companyInfo.address,
