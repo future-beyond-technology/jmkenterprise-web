@@ -12,9 +12,6 @@ export function Footer() {
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           <section className="metal-panel panel-sheen p-5">
             <h3 className="text-xl font-semibold text-white">{companyInfo.companyName}</h3>
-            <p className="mt-1 text-xs uppercase tracking-[0.12em] text-zinc-400">
-              Trade Name: {companyInfo.legalDetails.tradeName}
-            </p>
             <p className="mt-2 text-sm text-zinc-300">{companyInfo.businessType}</p>
             <div className="mt-4 space-y-2 text-sm text-zinc-200">
               <p>{companyInfo.address}</p>
@@ -28,7 +25,6 @@ export function Footer() {
                   {companyInfo.email}
                 </a>
               </p>
-              <p className="text-zinc-300">GSTIN: {companyInfo.gst}</p>
             </div>
           </section>
 
@@ -64,8 +60,10 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-zinc-800 py-4 text-center text-xs uppercase tracking-[0.1em] text-zinc-400">
-        © {new Date().getFullYear()} {companyInfo.companyName}. All rights reserved.
+      <div className="border-t border-zinc-800 px-4 py-4 text-center text-xs uppercase tracking-[0.1em] text-zinc-400">
+        <p>Trade Name: {companyInfo.legalDetails.tradeName}</p>
+        <p className="mt-1">GSTIN | MSME Registered | IEC Certified</p>
+        <p className="mt-1">© {new Date().getFullYear()} {companyInfo.companyName}. All rights reserved.</p>
       </div>
     </footer>
   );

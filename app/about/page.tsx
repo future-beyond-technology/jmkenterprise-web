@@ -89,6 +89,16 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
+          <p className="mt-5 text-base leading-7 text-zinc-200">
+            {companyInfo.companyName} operates under the registered trade name{" "}
+            {companyInfo.legalDetails.tradeName}, a {companyInfo.legalDetails.constitution} business
+            owned by {companyInfo.legalDetails.legalName}. Our operations are supported by a valid
+            Import Export Code (IEC), enabling us to engage in international trade and supply
+            industrial welding and hardware products efficiently.
+          </p>
+          <p className="mt-3 inline-flex rounded border border-zinc-700 bg-[#101214] px-4 py-2 text-sm font-semibold text-zinc-100">
+            IEC Code: {companyInfo.legalDetails.iecCode}
+          </p>
         </section>
 
         <article className="metal-panel panel-sheen p-6">

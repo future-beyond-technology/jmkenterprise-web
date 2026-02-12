@@ -12,6 +12,8 @@ export const metadata = buildMetadata({
 });
 
 export default function ContactPage() {
+  const hasValidMapUrl = companyInfo.googleMapsEmbedUrl.startsWith("http");
+
   return (
     <section className="industrial-section-dark">
       <div className="industrial-container grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-start">
@@ -45,16 +47,13 @@ export default function ContactPage() {
                   {companyInfo.email}
                 </a>
               </p>
-              <p>
-                <span className="font-semibold text-white">GSTIN:</span> {companyInfo.gst}
-              </p>
             </div>
 
             <section className="mt-6 rounded-lg border border-zinc-700 bg-[#111315] p-4">
               <h3 className="text-sm font-semibold uppercase tracking-[0.1em] text-white">
                 Legal Business Information
               </h3>
-              <div className="mt-3 space-y-2 text-sm text-zinc-300">
+              <div className="mt-3 grid gap-3 text-sm text-zinc-300 lg:grid-cols-2">
                 <p>
                   <span className="font-semibold text-zinc-100">Legal Name:</span>{" "}
                   {companyInfo.legalDetails.legalName}
@@ -68,7 +67,16 @@ export default function ContactPage() {
                   {companyInfo.legalDetails.constitution}
                 </p>
                 <p>
-                  <span className="font-semibold text-zinc-100">GSTIN:</span> {companyInfo.gst}
+                  <span className="font-semibold text-zinc-100">GSTIN:</span>{" "}
+                  {companyInfo.legalDetails.gst}
+                </p>
+                <p>
+                  <span className="font-semibold text-zinc-100">MSME / UDYAM Registration No:</span>{" "}
+                  {companyInfo.legalDetails.udyamRegistrationNumber}
+                </p>
+                <p>
+                  <span className="font-semibold text-zinc-100">IEC Code:</span>{" "}
+                  {companyInfo.legalDetails.iecCode}
                 </p>
               </div>
             </section>
@@ -82,14 +90,28 @@ export default function ContactPage() {
             <div className="border-b border-zinc-700 px-6 py-4">
               <h2 className="text-lg font-semibold uppercase tracking-[0.11em] text-white">Location Map</h2>
             </div>
-            <iframe
-              title={`${companyInfo.companyName} Location`}
-              src={companyInfo.googleMapsEmbedUrl}
-              className="h-72 w-full border-0"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              allowFullScreen
-            />
+            {hasValidMapUrl ? (
+              <iframe
+                title={`${companyInfo.companyName} Location`}
+                src={companyInfo.googleMapsEmbedUrl}
+                className="h-72 w-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+            ) : (
+              <div className="p-6 text-sm text-zinc-300">
+                <p>Map URL is currently unavailable.</p>
+                <a
+                  href={companyInfo.googleMapsPlaceUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-3 inline-flex text-zinc-100 underline"
+                >
+                  Open location in Google Maps
+                </a>
+              </div>
+            )}
           </article>
         </div>
 
