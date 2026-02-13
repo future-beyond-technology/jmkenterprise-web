@@ -1,182 +1,137 @@
-import Image from "next/image";
+"use client";
+
 import Link from "next/link";
-import { getCategories } from "@/lib/catalog";
-import { siteConfig, whatsappUrl } from "@/lib/site";
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useMemo, useState } from "react";
+import { getCategorySummaries } from "@/lib/industrial";
+import { whatsappUrl } from "@/lib/site";
 
-const heroStats = [
-  { value: "99.1%", label: "Supply Consistency" },
-  { value: "24-48h", label: "Quote Window" },
-  { value: "500+", label: "Category SKUs" },
-  { value: "PAN India", label: "Dispatch Reach" }
-];
-
-const procurementFlow = [
+const slides = [
   {
-    step: "01",
-    title: "Requirement Mapping",
-    note: "Collect technical specs, quantity, and delivery timeline."
+    kicker: "B2B Industrial Supply",
+    title: "Enterprise Welding Procurement, Engineered for Consistency",
+    description:
+      "Consumables, machines, tools, and safety gear aligned to real manufacturing workflows and monthly demand planning."
   },
   {
-    step: "02",
-    title: "Commercial Structuring",
-    note: "Align product mix, pricing slab, and lead-time confirmation."
+    kicker: "Use-Case Led Selection",
+    title: "Choose the Right Welding Stack for Shipyard, Workshop, and Plant Operations",
+    description:
+      "Application-first shortlisting helps teams quickly map standards, tensile requirements, and process compatibility."
   },
   {
-    step: "03",
-    title: "Supply Execution",
-    note: "Coordinated dispatch with responsive post-order support."
+    kicker: "Commercial + Technical Clarity",
+    title: "From Product Match to Scalable Monthly Supply",
+    description:
+      "Get structured quotations, technical data, and dependable dispatch coordination for repeat industrial orders."
   }
 ];
 
-const segmentTags = [
-  "Fabrication Plants",
-  "OEM Workshops",
-  "Infrastructure Projects",
-  "Authorized Dealers"
-];
+const heroVideo =
+  "https://videos.pexels.com/video-files/4489790/4489790-sd_960_506_30fps.mp4";
 
 export function Hero() {
-  const categories = getCategories();
-  const heroBackdropImage =
-    "https://images.pexels.com/photos/15947586/pexels-photo-15947586.jpeg?auto=compress&cs=tinysrgb&w=2000";
-  const visualRail = categories.slice(0, 3).map((category) => ({
-    title: category.name,
-    image: category.heroImage,
-    note: category.summary
-  }));
+  const categories = useMemo(() => getCategorySummaries(), []);
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % slides.length);
+    }, 4500);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const current = slides[activeSlide];
 
   return (
-    <section className="hero-cinematic border-b border-zinc-800">
-      <div className="hero-bg-media">
-        <Image
-          src={heroBackdropImage}
-          alt="Industrial team working in a factory environment"
-          fill
-          className="hero-bg-image"
-          sizes="100vw"
-          priority
-        />
-        <div className="hero-bg-overlay" />
-        <div className="hero-bg-sparks" />
-        <div className="hero-bg-beam" />
-        <div className="hero-bg-beam hero-bg-beam-delay" />
+    <section className="hero-enterprise relative overflow-hidden border-b border-zinc-800">
+      {/* Motion-capable video layer builds premium industrial atmosphere above the fold. */}
+      <div className="hero-video-wrap" aria-hidden>
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          className="hero-video"
+          poster="https://images.pexels.com/photos/15947586/pexels-photo-15947586.jpeg?auto=compress&cs=tinysrgb&w=2000"
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </video>
+        <div className="hero-video-overlay" />
       </div>
-      <div className="hero-gridline" />
-      <div className="hero-lens" />
 
       <div className="industrial-container relative py-16 lg:py-24">
-        <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-start">
-          <div className="reveal-up">
-            <p className="accent-kicker">Industrial Welding & Hardware Supplier</p>
-            <h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl">
-              Built Like an Industrial Command Deck for Consistent B2B Procurement
-            </h1>
-            <p className="mt-6 max-w-3xl text-base leading-7 text-zinc-300 sm:text-lg">
-              {siteConfig.name} supports B2B teams with structured sourcing across machines,
-              consumables, and tools. The platform experience is designed around supply confidence,
-              speed, and clarity for repeat purchase cycles.
-            </p>
+        <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+          <div>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeSlide}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.34 }}
+              >
+                <p className="accent-kicker">{current.kicker}</p>
+                <h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl">
+                  {current.title}
+                </h1>
+                <p className="mt-6 max-w-3xl text-base leading-7 text-zinc-200 sm:text-lg">
+                  {current.description}
+                </p>
+              </motion.div>
+            </AnimatePresence>
 
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-6 flex flex-wrap gap-3">
               <Link href="/products" className="btn-primary">
-                Explore Products
+                Explore Product Grid
               </Link>
               <Link href="/dealer-inquiry" className="btn-outline">
-                Request B2B Quote
+                Request Enterprise Quote
               </Link>
               <a href={whatsappUrl} target="_blank" rel="noreferrer" className="btn-subtle">
-                WhatsApp Now
+                WhatsApp Sales Team
               </a>
             </div>
 
-            <div className="metal-panel mt-8 p-4 sm:p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-zinc-300">
-                Trusted Across Industrial Segments
-              </p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {segmentTags.map((segment) => (
-                  <span
-                    key={segment}
-                    className="rounded border border-zinc-700 bg-[#111315] px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.11em] text-zinc-200"
-                  >
-                    {segment}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="stagger-grid mt-6 grid gap-3 sm:grid-cols-2">
-              {heroStats.map((item) => (
-                <article key={item.label} className="metric-tile">
-                  <p className="text-xl font-semibold text-white">{item.value}</p>
-                  <p className="mt-1 text-[11px] uppercase tracking-[0.11em] text-zinc-400">
-                    {item.label}
-                  </p>
-                </article>
+            <div className="mt-5 flex items-center gap-2">
+              {slides.map((slide, index) => (
+                <button
+                  key={slide.title}
+                  type="button"
+                  onClick={() => setActiveSlide(index)}
+                  className={`h-2.5 rounded-full transition ${
+                    activeSlide === index ? "w-10 bg-orange-400" : "w-4 bg-zinc-500"
+                  }`}
+                  aria-label={`Show slide ${index + 1}`}
+                />
               ))}
             </div>
           </div>
 
-          <aside className="reveal-up space-y-4">
-            <div className="hero-screen">
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-zinc-300">
-                    Supply Intelligence Console
-                  </p>
-                  <h2 className="mt-2 text-2xl font-semibold text-white">Procurement Workflow</h2>
-                </div>
-                <span className="inline-flex items-center gap-2 rounded-full border border-emerald-600/40 bg-emerald-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.1em] text-emerald-300">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                  Active
-                </span>
-              </div>
-
-              <div className="mt-5 space-y-3">
-                {procurementFlow.map((item) => (
-                  <article
-                    key={item.step}
-                    className="rounded-lg border border-zinc-700 bg-[#111315]/90 p-4"
-                  >
-                    <div className="flex items-start gap-3">
-                      <span className="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-[#FC7A02]/70 bg-[#FC7A02]/15 text-xs font-semibold text-white">
-                        {item.step}
-                      </span>
-                      <div>
-                        <h3 className="text-base font-semibold text-zinc-100">{item.title}</h3>
-                        <p className="mt-1 text-sm leading-6 text-zinc-300">{item.note}</p>
-                      </div>
-                    </div>
-                  </article>
-                ))}
-              </div>
-            </div>
-
-            <div className="stagger-grid grid gap-3 sm:grid-cols-3">
-              {visualRail.map((item) => (
-                <article key={item.title} className="showcase-tile">
-                  <div className="relative h-32 overflow-hidden rounded-md border border-zinc-700">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 1024px) 100vw, 33vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                  </div>
-                  <h3 className="mt-3 text-sm font-semibold uppercase tracking-[0.1em] text-zinc-100">
-                    {item.title}
-                  </h3>
-                  <p className="mt-1 text-xs leading-5 text-zinc-300">{item.note}</p>
-                </article>
-              ))}
-            </div>
+          <aside className="grid gap-4 sm:grid-cols-2">
+            {categories.map((category, index) => (
+              <motion.article
+                key={category.slug}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ delay: index * 0.08 }}
+                className="rounded-xl border border-zinc-700 bg-[#0f1112]/85 p-4 backdrop-blur-sm"
+              >
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-orange-300">
+                  {category.name}
+                </p>
+                <p className="mt-2 text-sm leading-6 text-zinc-300">{category.description}</p>
+                <p className="mt-3 text-[11px] uppercase tracking-[0.11em] text-zinc-500">
+                  {category.productCount} product lines
+                </p>
+              </motion.article>
+            ))}
           </aside>
         </div>
       </div>
-
-      <div className="hero-divider" />
     </section>
   );
 }

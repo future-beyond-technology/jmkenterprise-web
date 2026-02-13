@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ContactForm } from "@/components/forms/ContactForm";
+import { LeadForm } from "@/components/forms/LeadForm";
 import { CinematicPageHero } from "@/components/sections/CinematicPageHero";
 import { companyInfo } from "@/lib/company";
 import { buildMetadata } from "@/lib/seo";
@@ -8,9 +8,9 @@ import { siteConfig, whatsappUrl } from "@/lib/site";
 export const metadata = buildMetadata({
   title: "Contact",
   description:
-    "Contact JMK Enterprise for industrial welding and hardware supply inquiries, business support, and product information.",
+    "Connect with JMK Enterprise for technical consultation, pricing support, and B2B industrial procurement requirements.",
   path: "/contact",
-  keywords: ["contact jmk enterprise", "welding supplier contact", "industrial inquiry support"]
+  keywords: ["contact jmk enterprise", "enterprise welding support", "industrial quote request"]
 });
 
 export default function ContactPage() {
@@ -19,110 +19,73 @@ export default function ContactPage() {
   return (
     <section className="industrial-section-dark">
       <div className="industrial-container space-y-8">
+        {/* Contact hero sets communication channels and response expectations. */}
         <CinematicPageHero
-          kicker="Business Contact"
-          title={`Connect with ${companyInfo.companyName} for Fast B2B Response`}
-          description="Share your product requirements, target quantity, and delivery location. Our team will guide you with suitable product options and commercial clarity."
+          kicker="Contact & Conversion"
+          title="Connect with an Enterprise-Focused Industrial Sales Team"
+          description="Get technical recommendations, standard alignment support, and procurement-ready commercial guidance."
           image="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=2000"
-          imageAlt="Business team discussing procurement on laptop"
+          imageAlt="Business team discussing industrial procurement"
           actions={[
-            { href: "/dealer-inquiry", label: "Submit Dealer Inquiry", variant: "primary" },
+            { href: "/dealer-inquiry", label: "Dealer Inquiry", variant: "primary" },
             { href: whatsappUrl, label: "WhatsApp", variant: "subtle" }
           ]}
           stats={[
-            { value: "Phone", label: companyInfo.phone },
-            { value: "Email", label: companyInfo.email },
-            { value: "Hours", label: siteConfig.businessHours },
-            { value: "Response", label: "Within Business Day" }
+            { value: companyInfo.phone, label: "Sales Phone" },
+            { value: companyInfo.email, label: "Business Email" },
+            { value: siteConfig.businessHours, label: "Working Hours" },
+            { value: "B2B", label: "Enterprise Support" }
           ]}
           priority
         />
 
-        <div className="stagger-grid grid gap-4 md:grid-cols-3">
+        {/* Quick channel cards reduce friction for urgent enterprise buyers. */}
+        <div className="grid gap-4 md:grid-cols-3">
           <article className="channel-card">
-            <p className="text-xs font-semibold uppercase tracking-[0.13em] text-zinc-400">Call</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-zinc-500">Call</p>
             <p className="mt-2 text-lg font-semibold text-zinc-100">{companyInfo.phone}</p>
-            <a href={`tel:${companyInfo.phone.replace(/\s+/g, "")}`} className="mt-3 inline-flex text-sm text-zinc-300 underline">
+            <a href={`tel:${companyInfo.phone.replace(/\s+/g, "")}`} className="mt-2 inline-flex text-sm text-orange-300 underline">
               Start Call
             </a>
           </article>
           <article className="channel-card">
-            <p className="text-xs font-semibold uppercase tracking-[0.13em] text-zinc-400">Email</p>
-            <p className="mt-2 text-lg font-semibold text-zinc-100 break-words">{companyInfo.email}</p>
-            <a href={`mailto:${companyInfo.email}`} className="mt-3 inline-flex text-sm text-zinc-300 underline">
+            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-zinc-500">Email</p>
+            <p className="mt-2 text-lg font-semibold text-zinc-100 break-all">{companyInfo.email}</p>
+            <a href={`mailto:${companyInfo.email}`} className="mt-2 inline-flex text-sm text-orange-300 underline">
               Send Email
             </a>
           </article>
           <article className="channel-card">
-            <p className="text-xs font-semibold uppercase tracking-[0.13em] text-zinc-400">WhatsApp</p>
-            <p className="mt-2 text-lg font-semibold text-zinc-100">Instant Inquiry</p>
-            <a href={whatsappUrl} target="_blank" rel="noreferrer" className="mt-3 inline-flex text-sm text-zinc-300 underline">
-              Open WhatsApp
+            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-zinc-500">WhatsApp</p>
+            <p className="mt-2 text-lg font-semibold text-zinc-100">Instant Response</p>
+            <a href={whatsappUrl} target="_blank" rel="noreferrer" className="mt-2 inline-flex text-sm text-orange-300 underline">
+              Open Chat
             </a>
           </article>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+        {/* Dual-column layout keeps business trust info next to the lead form. */}
+        <div className="grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-start">
           <div className="space-y-6">
             <article className="metal-panel p-6 text-sm text-zinc-200">
-              <h2 className="text-lg font-semibold uppercase tracking-[0.11em] text-white">Company Details</h2>
-              <div className="mt-4 space-y-3">
-                <p>
-                  <span className="font-semibold text-white">Company:</span> {companyInfo.companyName}
-                </p>
-                <p>
-                  <span className="font-semibold text-white">Address:</span> {companyInfo.address}
-                </p>
-                <p>
-                  <span className="font-semibold text-white">Business Type:</span> {companyInfo.businessType}
-                </p>
+              <h2 className="text-lg font-semibold uppercase tracking-[0.1em] text-white">Company Details</h2>
+              <div className="mt-4 space-y-2 text-zinc-300">
+                <p><span className="font-semibold text-zinc-100">Company:</span> {companyInfo.companyName}</p>
+                <p><span className="font-semibold text-zinc-100">Address:</span> {companyInfo.address}</p>
+                <p><span className="font-semibold text-zinc-100">Business Type:</span> {companyInfo.businessType}</p>
+                <p><span className="font-semibold text-zinc-100">Trade Name:</span> {companyInfo.legalDetails.tradeName}</p>
+                <p><span className="font-semibold text-zinc-100">GSTIN:</span> {companyInfo.legalDetails.gst}</p>
               </div>
 
-              <section className="mt-6 rounded-lg border border-zinc-700 bg-[#111315] p-4">
-                <h3 className="text-sm font-semibold uppercase tracking-[0.1em] text-white">
-                  Legal Business Information
-                </h3>
-                <div className="mt-3 grid gap-3 text-sm text-zinc-300 lg:grid-cols-2">
-                  <p>
-                    <span className="font-semibold text-zinc-100">Legal Name:</span>{" "}
-                    {companyInfo.legalDetails.legalName}
-                  </p>
-                  <p>
-                    <span className="font-semibold text-zinc-100">Trade Name:</span>{" "}
-                    {companyInfo.legalDetails.tradeName}
-                  </p>
-                  <p>
-                    <span className="font-semibold text-zinc-100">Constitution:</span>{" "}
-                    {companyInfo.legalDetails.constitution}
-                  </p>
-                  <p>
-                    <span className="font-semibold text-zinc-100">GSTIN:</span>{" "}
-                    {companyInfo.legalDetails.gst}
-                  </p>
-                  <p>
-                    <span className="font-semibold text-zinc-100">UDYAM:</span>{" "}
-                    {companyInfo.legalDetails.udyamRegistrationNumber}
-                  </p>
-                  <p>
-                    <span className="font-semibold text-zinc-100">IEC Code:</span>{" "}
-                    {companyInfo.legalDetails.iecCode}
-                  </p>
-                </div>
-              </section>
-
               <div className="mt-5 flex flex-wrap gap-2">
-                <a href={whatsappUrl} target="_blank" rel="noreferrer" className="btn-subtle">
-                  Chat on WhatsApp
-                </a>
-                <Link href="/dealer-inquiry" className="btn-outline">
-                  Dealer Inquiry
-                </Link>
+                <Link href="/products" className="btn-outline">Browse Products</Link>
+                <Link href="/about" className="btn-subtle">About Business</Link>
               </div>
             </article>
 
             <article className="metal-panel overflow-hidden">
               <div className="border-b border-zinc-700 px-6 py-4">
-                <h2 className="text-lg font-semibold uppercase tracking-[0.11em] text-white">Location Map</h2>
+                <h2 className="text-lg font-semibold uppercase tracking-[0.1em] text-white">Location Map</h2>
               </div>
               {hasValidMapUrl ? (
                 <iframe
@@ -149,30 +112,7 @@ export default function ContactPage() {
             </article>
           </div>
 
-          <div className="space-y-6 reveal-up">
-            <article className="metal-panel p-5 text-sm text-zinc-200">
-              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-orange-300">
-                Before You Submit
-              </p>
-              <h2 className="mt-2 text-2xl font-semibold text-white">Send Better Inquiry, Get Faster Quote</h2>
-              <ul className="mt-4 space-y-2 text-zinc-300">
-                <li className="flex items-start gap-2">
-                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#FC7A02]" />
-                  <span>Mention product category and expected monthly demand.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#FC7A02]" />
-                  <span>Include delivery location and preferred timeline.</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#FC7A02]" />
-                  <span>Add technical specs if model compatibility matters.</span>
-                </li>
-              </ul>
-            </article>
-
-            <ContactForm />
-          </div>
+          <LeadForm title="Send Enterprise Inquiry" subtitle="Submit this form for a fast technical-commercial response." />
         </div>
       </div>
     </section>

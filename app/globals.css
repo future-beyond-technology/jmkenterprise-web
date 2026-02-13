@@ -9,6 +9,18 @@
   --industrial-light: #eceff1;
   --industrial-signal: #b90f00;
   --industrial-line: rgba(255, 255, 255, 0.07);
+  --color-primary: #f97316;
+  --color-primary-soft: #fb923c;
+  --color-surface-1: #111315;
+  --color-surface-2: #1b1f22;
+  --color-text-main: #f4f4f5;
+  --color-text-muted: #a1a1aa;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --radius-card: 1rem;
 }
 
 * {
@@ -18,6 +30,10 @@
 html,
 body {
   min-height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -54,6 +70,11 @@ a {
 .site-main {
   position: relative;
   z-index: 1;
+}
+
+.page-transition-frame {
+  min-height: inherit;
+  will-change: opacity, transform;
 }
 
 .site-atmosphere {
@@ -270,6 +291,50 @@ a {
   margin-top: 0.6rem;
   font-size: clamp(1.8rem, 4vw, 2.8rem);
   line-height: 1.08;
+}
+
+.u-surface {
+  border: 1px solid rgba(113, 113, 122, 0.72);
+  border-radius: var(--radius-card);
+  background: linear-gradient(145deg, #1a1d20, #111315);
+}
+
+.u-muted {
+  color: var(--color-text-muted);
+}
+
+.hero-enterprise {
+  position: relative;
+  min-height: 72vh;
+  background: linear-gradient(180deg, rgba(8, 11, 13, 0.65), rgba(8, 10, 12, 0.96));
+}
+
+.hero-video-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.75) brightness(0.46);
+}
+
+.hero-video-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(8, 10, 11, 0.92) 0%,
+      rgba(8, 10, 11, 0.76) 34%,
+      rgba(8, 10, 11, 0.52) 60%,
+      rgba(8, 10, 11, 0.85) 100%
+    ),
+    radial-gradient(circle at 84% 16%, rgba(249, 115, 22, 0.22), transparent 33%);
 }
 
 .hero-cinematic {
@@ -750,7 +815,18 @@ a {
   }
 }
 
+@media (min-width: 1024px) {
+  .page-hero-content {
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: end;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .panel-sheen::after,
   .reveal-up,
   .stagger-grid > *,
@@ -762,5 +838,9 @@ a {
   .page-hero-image,
   .page-hero-shine {
     animation: none !important;
+  }
+
+  .page-transition-frame {
+    will-change: auto;
   }
 }

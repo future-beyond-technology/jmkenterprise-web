@@ -1,84 +1,76 @@
-import Image from "next/image";
-import Link from "next/link";
-import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ProductCard } from "@/components/ProductCard";
-import { getCategories, getCategoryBySlug } from "@/lib/catalog";
+import { ProductExplorer } from "@/components/sections/ProductExplorer";
+import { CinematicPageHero } from "@/components/sections/CinematicPageHero";
+import {
+  getAllProducts,
+  getCategoryMeta,
+  getCategorySummaries,
+  getProductsByCategory
+} from "@/lib/industrial";
 import { buildMetadata } from "@/lib/seo";
+import type { Metadata } from "next";
 
 type CategoryPageProps = {
   params: Promise<{ category: string }>;
 };
 
 export function generateStaticParams() {
-  return getCategories().map((category) => ({ category: category.slug }));
+  return getCategorySummaries().map((category) => ({ category: category.slug }));
 }
 
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
-  const { category: categorySlug } = await params;
-  const category = getCategoryBySlug(categorySlug);
+  const { category } = await params;
+  const meta = getCategoryMeta(category);
 
-  if (!category) {
+  if (!meta) {
     return buildMetadata({
       title: "Category Not Found",
-      description: "The requested product category does not exist.",
+      description: "Requested category does not exist.",
       path: "/products"
     });
   }
 
   return buildMetadata({
-    title: category.seo.title,
-    description: category.seo.description,
-    path: `/products/${category.slug}`,
-    keywords: [category.name, "industrial supplier", "B2B product category"]
+    title: `${meta.name} | Product Grid`,
+    description: meta.description,
+    path: `/products/${meta.slug}`,
+    image: meta.bannerImage,
+    keywords: [meta.name, "industrial category", "B2B product shortlist"]
   });
 }
 
 export default async function CategoryPage({ params }: CategoryPageProps) {
-  const { category: categorySlug } = await params;
-  const category = getCategoryBySlug(categorySlug);
+  const { category } = await params;
+  const meta = getCategoryMeta(category);
 
-  if (!category) {
+  if (!meta) {
     notFound();
   }
 
+  const allProducts = getAllProducts();
+  const categoryProducts = getProductsByCategory(category);
+
   return (
     <section className="industrial-section-dark">
-      <div className="industrial-container">
-        <div className="relative overflow-hidden rounded-2xl border border-zinc-700">
-          <div className="relative min-h-[260px] lg:min-h-[320px]">
-            <Image
-              src={category.heroImage}
-              alt={`${category.name} industrial category`}
-              fill
-              className="object-cover"
-              sizes="100vw"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-black/25" />
-            <div className="absolute inset-0 flex items-end p-6 lg:p-8">
-              <div className="max-w-3xl">
-                <p className="accent-kicker">Category</p>
-                <h1 className="section-title text-white">{category.name}</h1>
-                <p className="mt-4 max-w-3xl text-zinc-200">{category.summary}</p>
-                <Link href="/dealer-inquiry" className="btn-primary mt-5">
-                  Get Category Pricing
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className="industrial-container space-y-8">
+        {/* Category-specific hero focuses users on one product domain at a time. */}
+        <CinematicPageHero
+          kicker="Category Product Grid"
+          title={`${meta.name}: Optimized for Industrial Use Cases`}
+          description={meta.description}
+          image={meta.bannerImage}
+          imageAlt={`${meta.name} category visual`}
+          stats={[
+            { value: `${categoryProducts.length}`, label: "Products in Category" },
+            { value: "Filtered", label: "Technical Match" },
+            { value: "Visual", label: "Use-case Storytelling" },
+            { value: "B2B", label: "Procurement Ready" }
+          ]}
+          priority
+        />
 
-        <div className="stagger-grid mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {category.products.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              categorySlug={category.slug}
-              categoryName={category.name}
-            />
-          ))}
-        </div>
+        {/* Shared explorer is reused with category lock for focused filtering. */}
+        <ProductExplorer products={allProducts} lockCategory={category} />
       </div>
     </section>
   );

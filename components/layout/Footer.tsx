@@ -1,38 +1,37 @@
 import Link from "next/link";
-import { getCategories } from "@/lib/catalog";
+import { getCategorySummaries } from "@/lib/industrial";
 import { companyInfo } from "@/lib/company";
 import { siteConfig } from "@/lib/site";
 
+const trustBadges = ["GST Verified", "MSME Registered", "IEC Enabled", "B2B Support Desk"];
+
 export function Footer() {
-  const categories = getCategories();
+  const categories = getCategorySummaries();
 
   return (
-    <footer className="relative overflow-hidden border-t border-zinc-800 bg-[#0d0f10]">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_0%_100%,rgba(252,122,2,0.17),transparent_35%),radial-gradient(circle_at_100%_0%,rgba(185,15,0,0.13),transparent_30%)]" />
+    <footer className="mt-16 border-t border-zinc-800 bg-[#0c0f10] pb-24">
       <div className="industrial-container py-12">
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          <section className="metal-panel panel-sheen p-5">
-            <h3 className="text-xl font-semibold text-white">{companyInfo.companyName}</h3>
+        <div className="grid gap-6 lg:grid-cols-[1.2fr_1fr_1fr]">
+          <section className="rounded-xl border border-zinc-700 bg-[#111315] p-5">
+            <h3 className="text-xl font-semibold text-zinc-100">{companyInfo.companyName}</h3>
             <p className="mt-2 text-sm text-zinc-300">{companyInfo.businessType}</p>
-            <div className="mt-4 space-y-2 text-sm text-zinc-200">
-              <p>{companyInfo.address}</p>
-              <p>
-                <a href={`tel:${companyInfo.phone.replace(/\s+/g, "")}`} className="transition hover:text-white">
-                  {companyInfo.phone}
-                </a>
-              </p>
-              <p>
-                <a href={`mailto:${companyInfo.email}`} className="transition hover:text-white">
-                  {companyInfo.email}
-                </a>
-              </p>
+            <p className="mt-3 text-sm text-zinc-400">{companyInfo.address}</p>
+
+            {/* Trust badges reinforce compliance signals at the final conversion touchpoint. */}
+            <div className="mt-4 flex flex-wrap gap-2">
+              {trustBadges.map((badge) => (
+                <span
+                  key={badge}
+                  className="rounded border border-zinc-700 bg-[#0f1112] px-2.5 py-1 text-[11px] uppercase tracking-[0.1em] text-zinc-400"
+                >
+                  {badge}
+                </span>
+              ))}
             </div>
           </section>
 
-          <section className="metal-panel p-5">
-            <h4 className="text-[11px] font-semibold uppercase tracking-[0.17em] text-zinc-300">
-              Quick Links
-            </h4>
+          <section className="rounded-xl border border-zinc-700 bg-[#111315] p-5">
+            <h4 className="text-xs font-semibold uppercase tracking-[0.15em] text-zinc-400">Quick Links</h4>
             <ul className="mt-3 space-y-2 text-sm text-zinc-200">
               {siteConfig.navLinks.map((link) => (
                 <li key={link.href}>
@@ -44,10 +43,8 @@ export function Footer() {
             </ul>
           </section>
 
-          <section className="metal-panel p-5">
-            <h4 className="text-[11px] font-semibold uppercase tracking-[0.17em] text-zinc-300">
-              Product Categories
-            </h4>
+          <section className="rounded-xl border border-zinc-700 bg-[#111315] p-5">
+            <h4 className="text-xs font-semibold uppercase tracking-[0.15em] text-zinc-400">Categories</h4>
             <ul className="mt-3 space-y-2 text-sm text-zinc-200">
               {categories.map((category) => (
                 <li key={category.slug}>
@@ -61,10 +58,10 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-zinc-800 px-4 py-4 text-center text-xs uppercase tracking-[0.1em] text-zinc-400">
-        <p>Trade Name: {companyInfo.legalDetails.tradeName}</p>
-        <p className="mt-1">GSTIN | MSME Registered | IEC Certified</p>
-        <p className="mt-1">© {new Date().getFullYear()} {companyInfo.companyName}. All rights reserved.</p>
+      <div className="border-t border-zinc-800 px-4 py-5 text-center text-xs uppercase tracking-[0.1em] text-zinc-500">
+        <p>
+          © {new Date().getFullYear()} {companyInfo.companyName}. Enterprise Industrial Procurement Partner.
+        </p>
       </div>
     </footer>
   );

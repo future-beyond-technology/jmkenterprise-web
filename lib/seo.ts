@@ -73,7 +73,7 @@ export function buildOrganizationJsonLd() {
       streetAddress: companyInfo.address,
       addressCountry: "IN"
     },
-    sameAs: [absoluteUrl("/contact")]
+    sameAs: []
   };
 }
 
@@ -82,12 +82,7 @@ export function buildWebsiteJsonLd() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: siteConfig.name,
-    url: siteConfig.domain,
-    potentialAction: {
-      "@type": "SearchAction",
-      target: `${siteConfig.domain}/products?query={search_term_string}`,
-      "query-input": "required name=search_term_string"
-    }
+    url: siteConfig.domain
   };
 }
 

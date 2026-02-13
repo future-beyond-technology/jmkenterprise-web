@@ -36,6 +36,7 @@ function getActionClass(variant: HeroAction["variant"]) {
 }
 
 function isExternalHref(href: string) {
+  // Route external links to anchors so absolute URLs are handled correctly.
   return /^https?:\/\//.test(href);
 }
 
@@ -50,6 +51,7 @@ export function CinematicPageHero({
   priority = false
 }: CinematicPageHeroProps) {
   return (
+    // Shared page hero enforces consistent visual storytelling across inner pages.
     <section className="page-hero-shell reveal-up">
       <Image
         src={image}
