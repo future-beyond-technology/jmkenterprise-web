@@ -7,7 +7,8 @@ export function Footer() {
   const categories = getCategories();
 
   return (
-    <footer className="border-t border-zinc-800 bg-[#0d0f10]">
+    <footer className="relative overflow-hidden border-t border-zinc-800 bg-[#0d0f10]">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_0%_100%,rgba(252,122,2,0.17),transparent_35%),radial-gradient(circle_at_100%_0%,rgba(185,15,0,0.13),transparent_30%)]" />
       <div className="industrial-container py-12">
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           <section className="metal-panel panel-sheen p-5">

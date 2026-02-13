@@ -5,8 +5,10 @@ import { siteConfig, whatsappUrl } from "@/lib/site";
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-zinc-800/80 bg-[#101213]/92 backdrop-blur-md">
-      <div className="border-b border-zinc-800/70 bg-[#0d0f10]">
+    <header className="sticky top-0 z-50 overflow-hidden border-b border-zinc-800/80 bg-[#101214]/88 backdrop-blur-md">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_0%,rgba(252,122,2,0.2),transparent_42%),linear-gradient(90deg,rgba(255,255,255,0.04),transparent_35%,rgba(255,255,255,0.04))]" />
+
+      <div className="relative border-b border-zinc-800/70 bg-[#0d0f10]/90">
         <div className="industrial-container flex items-center justify-between gap-3 py-2 text-[11px] uppercase tracking-[0.16em] text-zinc-400">
           <p className="truncate">{companyInfo.businessType}</p>
           <a
@@ -18,7 +20,7 @@ export function Header() {
         </div>
       </div>
 
-      <div className="industrial-container flex flex-col gap-4 py-4 lg:flex-row lg:items-center lg:justify-between">
+      <div className="industrial-container relative flex flex-col gap-4 py-4 lg:flex-row lg:items-center lg:justify-between">
         <Link href="/" className="flex items-center gap-3">
           <Image
             src={siteConfig.logo}
