@@ -5,7 +5,7 @@
       "name": "Welding Machines",
       "slug": "welding-machines",
       "summary": "Industrial-grade inverter and MIG welding machines for fabrication units, plant maintenance teams, and OEM production lines.",
-      "heroImage": "/images/products/welding-machine-arc-pro.svg",
+      "heroImage": "https://images.pexels.com/photos/34204859/pexels-photo-34204859.jpeg?auto=compress&cs=tinysrgb&w=1600",
       "seo": {
         "title": "Welding Machines | JMK Enterprise",
         "description": "Source industrial welding machines with consistent arc performance, high duty cycle, and dependable after-sales support from JMK Enterprise."
@@ -20,8 +20,8 @@
           "shortDescription": "Heavy-duty inverter arc welder for continuous industrial operation.",
           "description": "ArcMaster 400A is built for demanding shop-floor duty where welding consistency and uptime are critical. The machine delivers stable output for structural fabrication, repair work, and production welding jobs.",
           "images": [
-            "/images/products/welding-machine-arc-pro.svg",
-            "/images/products/welding-machine-control-panel.svg"
+            "https://images.pexels.com/photos/34204859/pexels-photo-34204859.jpeg?auto=compress&cs=tinysrgb&w=1600",
+            "https://images.pexels.com/photos/33653242/pexels-photo-33653242.jpeg?auto=compress&cs=tinysrgb&w=1600"
           ],
           "catalogUrl": "/catalogs/jmk-enterprise-catalog.pdf",
           "keywords": [
@@ -45,8 +45,8 @@
           "shortDescription": "Production-ready MIG unit for mild steel and stainless fabrication.",
           "description": "PowerMIG 350 Pulse supports high-speed production welding with reduced spatter and excellent bead appearance. It is suitable for fabrication contractors, OEM workshops, and industrial assembly lines.",
           "images": [
-            "/images/products/welding-machine-mig-350.svg",
-            "/images/products/welding-machine-mig-torch.svg"
+            "https://images.pexels.com/photos/15059760/pexels-photo-15059760.jpeg?auto=compress&cs=tinysrgb&w=1600",
+            "https://images.pexels.com/photos/33653238/pexels-photo-33653238.jpeg?auto=compress&cs=tinysrgb&w=1600"
           ],
           "catalogUrl": "/catalogs/jmk-enterprise-catalog.pdf",
           "keywords": [
@@ -68,7 +68,7 @@
       "name": "Welding Consumables (Electrodes & Wires)",
       "slug": "welding-consumables",
       "summary": "Reliable electrodes and welding wires for structural steel, repair welding, and high-throughput fabrication environments.",
-      "heroImage": "/images/products/consumable-electrode-e7018.svg",
+      "heroImage": "https://images.pexels.com/photos/9754818/pexels-photo-9754818.jpeg?auto=compress&cs=tinysrgb&w=1600",
       "seo": {
         "title": "Welding Consumables | JMK Enterprise",
         "description": "Industrial welding consumables including low-hydrogen electrodes and copper coated MIG wires for stable weld quality and productivity."
@@ -83,8 +83,8 @@
           "shortDescription": "Moisture-resistant low hydrogen electrodes for crack-resistant welds.",
           "description": "JMK E7018 low hydrogen electrodes are engineered for high-strength joints and reduced hydrogen cracking risk. Suitable for heavy fabrication, pressure vessel jobs, and structural welding applications.",
           "images": [
-            "/images/products/consumable-electrode-e7018.svg",
-            "/images/products/consumable-packaging.svg"
+            "https://images.pexels.com/photos/9754818/pexels-photo-9754818.jpeg?auto=compress&cs=tinysrgb&w=1600",
+            "https://images.pexels.com/photos/12475054/pexels-photo-12475054.jpeg?auto=compress&cs=tinysrgb&w=1600"
           ],
           "catalogUrl": "/catalogs/jmk-enterprise-catalog.pdf",
           "keywords": [
@@ -108,8 +108,8 @@
           "shortDescription": "High-feed copper coated wire for smooth arc transfer and low spatter.",
           "description": "ER70S-6 copper coated MIG wire from JMK Enterprise offers clean feeding and stable performance across automated and semi-automatic setups, ideal for high-volume fabrication operations.",
           "images": [
-            "/images/products/consumable-mig-wire.svg",
-            "/images/products/consumable-wire-spool.svg"
+            "https://images.pexels.com/photos/15059762/pexels-photo-15059762.jpeg?auto=compress&cs=tinysrgb&w=1600",
+            "https://images.pexels.com/photos/9242913/pexels-photo-9242913.jpeg?auto=compress&cs=tinysrgb&w=1600"
           ],
           "catalogUrl": "/catalogs/jmk-enterprise-catalog.pdf",
           "keywords": [
@@ -131,7 +131,7 @@
       "name": "Tools & Hardware",
       "slug": "tools-hardware",
       "summary": "Workshop-ready industrial tools and hardware essentials selected for durability, repeat use, and operational safety.",
-      "heroImage": "/images/products/tool-angle-grinder.svg",
+      "heroImage": "https://images.pexels.com/photos/13296062/pexels-photo-13296062.jpeg?auto=compress&cs=tinysrgb&w=1600",
       "seo": {
         "title": "Tools & Hardware | JMK Enterprise",
         "description": "Industrial tools and hardware solutions from angle grinders to precision vices for B2B buyers, dealers, and fabrication units."
@@ -146,8 +146,8 @@
           "shortDescription": "Rugged angle grinder for cutting, deburring, and surface preparation.",
           "description": "ProCut 5-inch angle grinder is designed for fabrication and maintenance teams requiring reliable power delivery and ergonomic control during long operational cycles.",
           "images": [
-            "/images/products/tool-angle-grinder.svg",
-            "/images/products/tool-cutting-disc.svg"
+            "https://images.pexels.com/photos/13296062/pexels-photo-13296062.jpeg?auto=compress&cs=tinysrgb&w=1600",
+            "https://images.pexels.com/photos/3997251/pexels-photo-3997251.jpeg?auto=compress&cs=tinysrgb&w=1600"
           ],
           "catalogUrl": "/catalogs/jmk-enterprise-catalog.pdf",
           "keywords": [
@@ -171,8 +171,8 @@
           "shortDescription": "Cast steel vice for clamping and precision workshop operations.",
           "description": "ForgeLock 6-inch bench vice provides firm clamping force and excellent repeatability for drilling, cutting, and fitting operations in industrial workshops.",
           "images": [
-            "/images/products/tool-bench-vice.svg",
-            "/images/products/tool-bench-installation.svg"
+            "https://images.pexels.com/photos/29404121/pexels-photo-29404121.jpeg?auto=compress&cs=tinysrgb&w=1600",
+            "https://images.pexels.com/photos/3844516/pexels-photo-3844516.jpeg?auto=compress&cs=tinysrgb&w=1600"
           ],
           "catalogUrl": "/catalogs/jmk-enterprise-catalog.pdf",
           "keywords": [

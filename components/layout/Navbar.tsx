@@ -6,7 +6,7 @@ export function Navbar() {
   const categories = getCategories();
 
   return (
-    <nav className="border-b border-zinc-800 bg-[#15181a]/95">
+    <nav className="border-b border-zinc-800 bg-[linear-gradient(90deg,#131719,#191d20,#131719)]">
       <div className="industrial-container py-3">
         <ul className="flex flex-wrap gap-2 text-xs font-semibold uppercase tracking-[0.13em] text-zinc-200 sm:text-sm">
           {siteConfig.navLinks.map((link) => (

@@ -3,6 +3,7 @@ import { Barlow_Condensed, Manrope } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { Navbar } from "@/components/layout/Navbar";
+import { VisualBackdrop } from "@/components/layout/VisualBackdrop";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { buildOrganizationJsonLd, buildWebsiteJsonLd } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
@@ -57,10 +58,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${bodyFont.variable} ${headingFont.variable}`}>
+        <VisualBackdrop />
         <SEOHead id="site-structured-data" data={[buildOrganizationJsonLd(), buildWebsiteJsonLd()]} />
         <Header />
         <Navbar />
-        <main>{children}</main>
+        <main className="site-main">{children}</main>
         <Footer />
       </body>
     </html>
