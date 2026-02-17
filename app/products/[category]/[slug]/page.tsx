@@ -1,12 +1,13 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { LeadForm } from "@/components/forms/LeadForm";
+import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { ProductCard } from "@/components/ProductCard";
 import { ProductMediaGallery } from "@/components/ProductMediaGallery";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { StickySpecs } from "@/components/StickySpecs";
 import { TabbedDetails } from "@/components/TabbedDetails";
+import { getCategoryPathLabel, getLeafPathByProductId } from "@/lib/category-structure";
 import {
   getAllProductPaths,
   getCategoryMeta,
@@ -60,6 +61,8 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
   }
 
   const relatedProducts = getRelatedProducts(product, 3);
+  const leafPath = getLeafPathByProductId(product.id);
+  const leafLabels = leafPath ? getCategoryPathLabel(leafPath) : undefined;
 
   const productSchema = {
     "@context": "https://schema.org",
@@ -85,30 +88,53 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
     url: absoluteUrl(`/products/${product.category}/${product.slug}`)
   };
 
-  const breadcrumbSchema = buildBreadcrumbJsonLd([
-    { name: "Home", path: "/" },
-    { name: "Categories", path: "/categories" },
-    { name: categoryMeta.name, path: `/products/${categoryMeta.slug}` },
-    { name: product.title, path: `/products/${product.category}/${product.slug}` }
-  ]);
+  const breadcrumbSchema = buildBreadcrumbJsonLd(
+    leafPath && leafLabels
+      ? [
+          { name: "Home", path: "/" },
+          { name: "Products", path: "/products" },
+          { name: leafLabels.category.name, path: `/products/${leafLabels.category.slug}` },
+          {
+            name: leafLabels.subSubcategory.name,
+            path: `/products/${leafPath.category}/${leafPath.subcategory}/${leafPath.subSubcategory}`
+          },
+          { name: product.title, path: `/products/${product.category}/${product.slug}` }
+        ]
+      : [
+          { name: "Home", path: "/" },
+          { name: "Products", path: "/products" },
+          { name: categoryMeta.name, path: `/products/${categoryMeta.slug}` },
+          { name: product.title, path: `/products/${product.category}/${product.slug}` }
+        ]
+  );
 
   return (
     <section className="industrial-section-dark">
       <SEOHead id="product-structured-data" data={[productSchema, breadcrumbSchema]} />
 
       <div className="industrial-container space-y-8">
-        <nav
-          aria-label="Breadcrumb"
-          className="flex flex-wrap items-center gap-2 text-xs uppercase tracking-[0.1em] text-zinc-500"
-        >
-          <Link href="/">Home</Link>
-          <span>/</span>
-          <Link href="/categories">Categories</Link>
-          <span>/</span>
-          <Link href={`/products/${categoryMeta.slug}`}>{categoryMeta.name}</Link>
-          <span>/</span>
-          <span className="text-zinc-300">{product.title}</span>
-        </nav>
+        <Breadcrumbs
+          variant="dark"
+          items={
+            leafPath && leafLabels
+              ? [
+                  { label: "Home", href: "/" },
+                  { label: "Products", href: "/products" },
+                  { label: leafLabels.category.name, href: `/products/${leafLabels.category.slug}` },
+                  {
+                    label: leafLabels.subSubcategory.name,
+                    href: `/products/${leafPath.category}/${leafPath.subcategory}/${leafPath.subSubcategory}`
+                  },
+                  { label: product.title }
+                ]
+              : [
+                  { label: "Home", href: "/" },
+                  { label: "Products", href: "/products" },
+                  { label: categoryMeta.name, href: `/products/${categoryMeta.slug}` },
+                  { label: product.title }
+                ]
+          }
+        />
 
         <header>
           <p className="accent-kicker">{product.categoryLabel}</p>

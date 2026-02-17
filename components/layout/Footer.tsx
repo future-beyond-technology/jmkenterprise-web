@@ -1,41 +1,46 @@
 import Link from "next/link";
-import { getCategorySummaries } from "@/lib/industrial";
+import { getCategoryNodes } from "@/lib/category-structure";
 import { companyInfo } from "@/lib/company";
-import { siteConfig } from "@/lib/site";
+import { siteConfig, whatsappUrl } from "@/lib/site";
 
-const trustBadges = ["GST Verified", "MSME Registered", "IEC Enabled", "B2B Support Desk"];
+const socialLinks = [
+  { label: "WhatsApp", href: whatsappUrl },
+  { label: "Google Maps", href: companyInfo.googleMapsPlaceUrl },
+  { label: "Email", href: `mailto:${companyInfo.email}` }
+];
 
 export function Footer() {
-  const categories = getCategorySummaries();
+  const categories = getCategoryNodes();
 
   return (
-    <footer className="mt-16 border-t border-zinc-800 bg-[#0c0f10] pb-24">
-      <div className="industrial-container py-12">
-        <div className="grid gap-6 lg:grid-cols-[1.2fr_1fr_1fr]">
-          <section className="rounded-xl border border-zinc-700 bg-[#111315] p-5">
-            <h3 className="text-xl font-semibold text-zinc-100">{companyInfo.companyName}</h3>
-            <p className="mt-2 text-sm text-zinc-300">{companyInfo.businessType}</p>
-            <p className="mt-3 text-sm text-zinc-400">{companyInfo.address}</p>
-
-            {/* Trust badges reinforce compliance signals at the final conversion touchpoint. */}
-            <div className="mt-4 flex flex-wrap gap-2">
-              {trustBadges.map((badge) => (
-                <span
-                  key={badge}
-                  className="rounded border border-zinc-700 bg-[#0f1112] px-2.5 py-1 text-[11px] uppercase tracking-[0.1em] text-zinc-400"
-                >
-                  {badge}
-                </span>
-              ))}
-            </div>
+    <footer className="border-t border-slate-200 bg-slate-950 text-slate-200">
+      <div className="industrial-container py-14">
+        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-4">
+          <section>
+            <h2 className="text-lg font-semibold text-white">{companyInfo.companyName}</h2>
+            <p className="mt-3 text-sm leading-6 text-slate-300">{companyInfo.businessType}</p>
+            <p className="mt-3 text-sm leading-6 text-slate-400">{companyInfo.address}</p>
+            <p className="mt-3 text-sm text-slate-300">
+              <a href={`tel:${companyInfo.phone}`} className="transition hover:text-white">
+                {companyInfo.phone}
+              </a>
+            </p>
+            <p className="mt-1 text-sm text-slate-300">
+              <a href={`mailto:${companyInfo.email}`} className="transition hover:text-white">
+                {companyInfo.email}
+              </a>
+            </p>
           </section>
 
-          <section className="rounded-xl border border-zinc-700 bg-[#111315] p-5">
-            <h4 className="text-xs font-semibold uppercase tracking-[0.15em] text-zinc-400">Quick Links</h4>
-            <ul className="mt-3 space-y-2 text-sm text-zinc-200">
+          <section>
+            <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">Quick Links</h3>
+            <ul className="mt-3 space-y-1.5 text-sm">
               {siteConfig.navLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="transition hover:text-white">
+                  <Link
+                    href={link.href}
+                    className="inline-flex min-h-10 items-center rounded-md px-2 transition hover:bg-slate-800 hover:text-white"
+                  >
                     {link.label}
                   </Link>
                 </li>
@@ -43,14 +48,35 @@ export function Footer() {
             </ul>
           </section>
 
-          <section className="rounded-xl border border-zinc-700 bg-[#111315] p-5">
-            <h4 className="text-xs font-semibold uppercase tracking-[0.15em] text-zinc-400">Categories</h4>
-            <ul className="mt-3 space-y-2 text-sm text-zinc-200">
+          <section>
+            <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">Categories</h3>
+            <ul className="mt-3 space-y-1.5 text-sm">
               {categories.map((category) => (
                 <li key={category.slug}>
-                  <Link href={`/products/${category.slug}`} className="transition hover:text-white">
+                  <Link
+                    href={`/products/${category.slug}`}
+                    className="inline-flex min-h-10 items-center rounded-md px-2 transition hover:bg-slate-800 hover:text-white"
+                  >
                     {category.name}
                   </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section>
+            <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">Social</h3>
+            <ul className="mt-3 space-y-1.5 text-sm">
+              {socialLinks.map((social) => (
+                <li key={social.label}>
+                  <a
+                    href={social.href}
+                    target={social.href.startsWith("http") ? "_blank" : undefined}
+                    rel={social.href.startsWith("http") ? "noreferrer" : undefined}
+                    className="inline-flex min-h-10 items-center rounded-md px-2 transition hover:bg-slate-800 hover:text-white"
+                  >
+                    {social.label}
+                  </a>
                 </li>
               ))}
             </ul>
@@ -58,9 +84,9 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-zinc-800 px-4 py-5 text-center text-xs uppercase tracking-[0.1em] text-zinc-500">
+      <div className="border-t border-slate-800 px-4 py-5 text-center text-xs uppercase tracking-[0.1em] text-slate-500">
         <p>
-          © {new Date().getFullYear()} {companyInfo.companyName}. Enterprise Industrial Procurement Partner.
+          © {new Date().getFullYear()} {companyInfo.companyName}. All rights reserved.
         </p>
       </div>
     </footer>

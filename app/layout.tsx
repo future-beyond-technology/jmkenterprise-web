@@ -2,9 +2,6 @@ import type { Metadata } from "next";
 import { Barlow_Condensed, Manrope } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
-import { Navbar } from "@/components/layout/Navbar";
-import { StickyBuyerCTA } from "@/components/layout/StickyBuyerCTA";
-import { VisualBackdrop } from "@/components/layout/VisualBackdrop";
 import { SEOHead } from "@/components/seo/SEOHead";
 import { buildOrganizationJsonLd, buildWebsiteJsonLd } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
@@ -62,15 +59,11 @@ export default function RootLayout({
         <a href="#main-content" className="sr-only focus:not-sr-only">
           Skip to main content
         </a>
-        <VisualBackdrop />
         {/* Global organization + website schema improves baseline SEO coverage. */}
         <SEOHead id="site-structured-data" data={[buildOrganizationJsonLd(), buildWebsiteJsonLd()]} />
         <Header />
-        <Navbar />
         <main id="main-content" className="site-main">{children}</main>
         <Footer />
-        {/* Bottom sticky CTA preserves lead-generation visibility across all routes. */}
-        <StickyBuyerCTA />
       </body>
     </html>
   );

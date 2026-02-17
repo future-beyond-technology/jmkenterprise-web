@@ -1,48 +1,34 @@
-import { CategoryCard } from "@/components/CategoryCard";
-import { CinematicPageHero } from "@/components/sections/CinematicPageHero";
-import { VisualStory } from "@/components/sections/VisualStory";
-import { getCategorySummaries } from "@/lib/industrial";
+import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
+import { CategoryNavigationSection } from "@/components/sections/CategoryNavigationSection";
+import { getCategoryNodes } from "@/lib/category-structure";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
   title: "Categories",
   description:
-    "Browse enterprise-ready welding consumables, machines, tools, and safety gear categories with clear use-case visuals.",
+    "Browse main industrial categories with clear subcategory hierarchy and fast navigation.",
   path: "/categories",
-  keywords: ["industrial categories", "welding portfolio", "B2B product categories"]
+  keywords: ["industrial categories", "corporate category navigation", "b2b product categories"]
 });
 
 export default function CategoriesPage() {
-  const categories = getCategorySummaries();
+  const categories = getCategoryNodes();
 
   return (
-    <section className="industrial-section-dark">
-      <div className="industrial-container space-y-8">
-        {/* Hero establishes why category architecture matters for enterprise sourcing. */}
-        <CinematicPageHero
-          kicker="Industrial Categories"
-          title="Category Architecture Built for Faster Procurement Decisions"
-          description="Each category is designed to help buyers quickly understand standards, application fit, and operating context."
-          image="https://images.pexels.com/photos/2760243/pexels-photo-2760243.jpeg?auto=compress&cs=tinysrgb&w=2000"
-          imageAlt="Industrial team reviewing equipment and process charts"
-          stats={[
-            { value: `${categories.length}`, label: "Primary Categories" },
-            { value: "Use-Case", label: "Navigation by Application" },
-            { value: "Visual", label: "Context-rich Product Story" },
-            { value: "B2B", label: "Buyer-focused UX" }
-          ]}
-          priority
-        />
-
-        {/* Category cards include visual identity, counts, and direct deep links. */}
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-          {categories.map((category) => (
-            <CategoryCard key={category.slug} category={category} />
-          ))}
+    <>
+      <section className="bg-slate-100 py-10 text-slate-900">
+        <div className="industrial-container">
+          <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Categories" }]} />
+          <header className="mt-4 max-w-3xl">
+            <h1 className="text-4xl font-semibold tracking-tight">Industrial Categories</h1>
+            <p className="mt-3 text-slate-600">
+              Choose a main category to continue into subcategory and sub-subcategory product listings.
+            </p>
+          </header>
         </div>
-      </div>
+      </section>
 
-      <VisualStory />
-    </section>
+      <CategoryNavigationSection categories={categories} />
+    </>
   );
 }

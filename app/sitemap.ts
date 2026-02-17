@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
-import { getAllProductPaths, getCategorySummaries } from "@/lib/industrial";
+import { getCategoryLeafPaths, getCategoryNodes } from "@/lib/category-structure";
+import { getAllProductPaths } from "@/lib/industrial";
 import { absoluteUrl } from "@/lib/seo";
 
 export const dynamic = "force-static";
@@ -21,8 +22,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   ];
 
-  const categoryRoutes: MetadataRoute.Sitemap = getCategorySummaries().map((category) => ({
+  const categoryRoutes: MetadataRoute.Sitemap = getCategoryNodes().map((category) => ({
     url: absoluteUrl(`/products/${category.slug}`),
+    lastModified: now,
+    changeFrequency: "weekly",
+    priority: 0.8
+  }));
+
+  const subSubcategoryRoutes: MetadataRoute.Sitemap = getCategoryLeafPaths().map((path) => ({
+    url: absoluteUrl(`/products/${path.category}/${path.subcategory}/${path.subSubcategory}`),
     lastModified: now,
     changeFrequency: "weekly",
     priority: 0.8
@@ -35,5 +43,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7
   }));
 
-  return [...staticRoutes, ...categoryRoutes, ...productRoutes];
+  return [...staticRoutes, ...categoryRoutes, ...subSubcategoryRoutes, ...productRoutes];
 }

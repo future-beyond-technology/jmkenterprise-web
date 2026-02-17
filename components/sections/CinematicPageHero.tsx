@@ -96,8 +96,10 @@ export function CinematicPageHero({
         {stats.length > 0 ? (
           <aside className="stagger-grid grid gap-3 sm:grid-cols-2">
             {stats.map((stat) => (
-              <article key={stat.label} className="page-hero-stat">
-                <p className="text-xl font-semibold text-white">{stat.value}</p>
+              <article key={stat.label} className="page-hero-stat min-w-0">
+                <p className="text-base font-semibold leading-snug text-white sm:text-xl [overflow-wrap:anywhere]">
+                  {stat.value}
+                </p>
                 <p className="mt-1 text-[11px] uppercase tracking-[0.11em] text-zinc-300">{stat.label}</p>
               </article>
             ))}

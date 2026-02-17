@@ -1,0 +1,164 @@
+{
+  "categories": [
+    {
+      "id": "welding-consumables",
+      "name": "Welding Consumables",
+      "slug": "welding-consumables",
+      "description": "Industrial-grade wires for consistent, high-volume welding operations.",
+      "icon": "wire",
+      "heroImage": "https://images.pexels.com/photos/15059762/pexels-photo-15059762.jpeg?auto=compress&cs=tinysrgb&w=1800",
+      "subcategories": [
+        {
+          "id": "solid-wire",
+          "name": "Solid Wire",
+          "slug": "solid-wire",
+          "description": "Smooth-feed wire options for production MIG lines.",
+          "subSubcategories": [
+            {
+              "id": "copper-coated-mig",
+              "name": "Copper Coated MIG",
+              "slug": "copper-coated-mig",
+              "description": "Low-spatter wire for fabrication and general engineering use.",
+              "productIds": ["wire-er70s6-12"]
+            }
+          ]
+        },
+        {
+          "id": "flux-cored-wire",
+          "name": "Flux Cored Wire",
+          "slug": "flux-cored-wire",
+          "description": "High deposition wire for structural and heavy sections.",
+          "subSubcategories": [
+            {
+              "id": "gas-shielded-flux-wire",
+              "name": "Gas Shielded Flux Wire",
+              "slug": "gas-shielded-flux-wire",
+              "description": "All-position flux-cored solutions for structural fabrication.",
+              "productIds": ["wire-e71t1c-flux"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "welding-machines",
+      "name": "Welding Machines",
+      "slug": "welding-machines",
+      "description": "Production-ready welding systems for demanding duty cycles.",
+      "icon": "machine",
+      "heroImage": "https://images.pexels.com/photos/34204859/pexels-photo-34204859.jpeg?auto=compress&cs=tinysrgb&w=1800",
+      "subcategories": [
+        {
+          "id": "mig-systems",
+          "name": "MIG Systems",
+          "slug": "mig-systems",
+          "description": "Automated and semi-automated MIG solutions.",
+          "subSubcategories": [
+            {
+              "id": "pulse-mig",
+              "name": "Pulse MIG",
+              "slug": "pulse-mig",
+              "description": "Pulse-enabled systems for stable arc transfer and finish quality.",
+              "productIds": ["mig-400-pulse"]
+            }
+          ]
+        },
+        {
+          "id": "arc-systems",
+          "name": "ARC Systems",
+          "slug": "arc-systems",
+          "description": "Reliable arc inverters for field and workshop tasks.",
+          "subSubcategories": [
+            {
+              "id": "industrial-inverter",
+              "name": "Industrial Inverter",
+              "slug": "industrial-inverter",
+              "description": "Heavy-duty inverters for maintenance and fabrication workloads.",
+              "productIds": ["arc-500-inverter"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tools-equipment",
+      "name": "Tools & Equipment",
+      "slug": "tools-equipment",
+      "description": "Daily-use workshop tools with dependable build quality.",
+      "icon": "tool",
+      "heroImage": "https://images.pexels.com/photos/13296062/pexels-photo-13296062.jpeg?auto=compress&cs=tinysrgb&w=1800",
+      "subcategories": [
+        {
+          "id": "cutting-tools",
+          "name": "Cutting Tools",
+          "slug": "cutting-tools",
+          "description": "Surface prep and cutting tools for fabrication workflows.",
+          "subSubcategories": [
+            {
+              "id": "angle-grinders",
+              "name": "Angle Grinders",
+              "slug": "angle-grinders",
+              "description": "Balanced high-RPM tools for cutting and finishing.",
+              "productIds": ["grinder-5in-pro"]
+            }
+          ]
+        },
+        {
+          "id": "bench-fixtures",
+          "name": "Bench Fixtures",
+          "slug": "bench-fixtures",
+          "description": "Heavy-hold workshop fixtures for fitting operations.",
+          "subSubcategories": [
+            {
+              "id": "bench-vices",
+              "name": "Bench Vices",
+              "slug": "bench-vices",
+              "description": "High-clamp bench solutions for repetitive fitting tasks.",
+              "productIds": ["bench-vice-6in"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "protective-gear",
+      "name": "Protective Gear",
+      "slug": "protective-gear",
+      "description": "Certified PPE solutions for safer welding operations.",
+      "icon": "shield",
+      "heroImage": "https://images.pexels.com/photos/162568/factory-worker-manufacture-industry-162568.jpeg?auto=compress&cs=tinysrgb&w=1800",
+      "subcategories": [
+        {
+          "id": "head-protection",
+          "name": "Head Protection",
+          "slug": "head-protection",
+          "description": "Helmet systems for visibility and eye protection.",
+          "subSubcategories": [
+            {
+              "id": "auto-darkening-helmets",
+              "name": "Auto-Darkening Helmets",
+              "slug": "auto-darkening-helmets",
+              "description": "Fast-switch lens technology for safer and clearer welding.",
+              "productIds": ["helmet-auto-dark"]
+            }
+          ]
+        },
+        {
+          "id": "hand-protection",
+          "name": "Hand Protection",
+          "slug": "hand-protection",
+          "description": "Heat-resistant hand safety essentials for welders.",
+          "subSubcategories": [
+            {
+              "id": "heat-resistant-gloves",
+              "name": "Heat Resistant Gloves",
+              "slug": "heat-resistant-gloves",
+              "description": "Durable leather gloves for thermal insulation and grip.",
+              "productIds": ["gloves-leather-pro"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
