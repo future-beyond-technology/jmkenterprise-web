@@ -251,7 +251,7 @@ export function Header() {
               </button>
             </form>
 
-            <Link href="/dealer-inquiry" onClick={closeMenus} className="btn-primary ml-2">
+            <Link href="/dealer-inquiry" onClick={closeMenus} className="btn-primary nav-quote-btn ml-2">
               Get Quote
             </Link>
           </nav>
@@ -364,7 +364,7 @@ export function Header() {
             ))}
           </div>
 
-          <Link href="/dealer-inquiry" onClick={closeMenus} className="btn-primary mt-4 w-full">
+          <Link href="/dealer-inquiry" onClick={closeMenus} className="btn-primary nav-quote-btn mt-4 w-full">
             Get Quote
           </Link>
         </div>

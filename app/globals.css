@@ -597,6 +597,20 @@ a {
   filter: brightness(1.05);
 }
 
+.btn-primary.nav-quote-btn {
+  min-height: 2.5rem;
+  padding: 0 1rem;
+  font-size: 0.75rem;
+  line-height: 1;
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 1279px) {
+  .btn-primary.nav-quote-btn {
+    min-height: 2.75rem;
+  }
+}
+
 .btn-outline {
   display: inline-flex;
   align-items: center;
